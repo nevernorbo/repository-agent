@@ -1,0 +1,9 @@
+services:
+  repository_api:
+    build: ./repository_api
+    container_name: repository_api
+    environment:
+      - QDRANT_URL
+      - QDRANT_API_KEY
+    ports:
+      - 8000:8000
