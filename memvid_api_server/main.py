@@ -4,7 +4,7 @@ import sys
 from pathlib import Path
 
 import uvicorn
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Response
 from git import Repo
 from pydantic import BaseModel
 
@@ -31,6 +31,39 @@ class Repository(BaseModel):
 
 def get_repo_name_from_url(url: str) -> str:
     return Path(url).stem
+
+
+def format_results_to_markdown(results: dict) -> str:
+    if not results or "hits" not in results or not results["hits"]:
+        return "No results found."
+
+    markdown_output = ""
+    for hit in results["hits"]:
+        metadata = hit.get("metadata", {})
+        title = hit.get("title", "N/A")
+        text = hit.get("text", "")
+
+        markdown_output += f"### File: `{title}`\n"
+        if "line" in metadata:
+            markdown_output += f"**Line:** {metadata['line']}\n"
+        if "symbol_type" in metadata:
+            markdown_output += f"**Type:** {metadata['symbol_type']}\n"
+
+        # Heuristic to find the programming language for syntax highlighting
+        lang = ""
+        if "." in title:
+            ext = title.split(".")[-1]
+            if ext == "py":
+                lang = "python"
+            elif ext in ["js", "ts"]:
+                lang = "typescript"
+            elif ext == "cs":
+                lang = "csharp"
+            # Add more extensions as needed
+
+        markdown_output += f"```{lang}\n{text}\n```\n\n---\n\n"
+
+    return markdown_output
 
 
 @app.post("/repository")
@@ -105,10 +138,20 @@ async def query_repository(repo_name: str, q: str):
 
     try:
         results = mem.find(q)
-        return results
+        markdown = format_results_to_markdown(results)
+        return markdown
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error during search: {e}")
 
+@app.post("/repository/{repo_name}/close")
+async def close_memory(repo_name: str):
+    if repo_name in loaded_memories:
+        del loaded_memories[repo_name]
+        return {"message": f"Memory for repository '{repo_name}' has been closed."}
+    else:
+        raise HTTPException(
+            status_code=404, detail="Repository memory not found in cache."
+        )
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8001)

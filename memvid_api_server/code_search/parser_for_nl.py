@@ -46,41 +46,15 @@ def extract_code_items(lang, src_code, file_meta):
     items = []
 
     for extraction in extractor(root, src_lines):
-        if lang == "python":
-            node, item_type, name_node, docstring = extraction
-            name = name_node.text.decode()
+        node, item_type, name_node = extraction
+        name = name_node.text.decode()
 
-            item = {
-                "name": name,
-                "signature": get_snippet(src_lines, node.start_point, node.end_point),
-                "code_type": item_type,
-                "docstring": docstring,
-                "line": node.start_point[0] + 1,
-                "line_from": node.start_point[0] + 1,
-                "line_to": node.end_point[0] + 1,
-                "context": {
-                    **file_meta,
-                    "snippet": get_snippet(src_lines, node.start_point, node.end_point),
-                },
-            }
-        else:
-            # JavaScript/TypeScript and C family
-            node, item_type, name_node = extraction
-            name = name_node.text.decode()
-
-            item = {
-                "name": name,
-                "signature": get_snippet(src_lines, node.start_point, node.end_point),
-                "code_type": item_type,
-                "docstring": None,
-                "line": node.start_point[0] + 1,
-                "line_from": node.start_point[0] + 1,
-                "line_to": node.end_point[0] + 1,
-                "context": {
-                    **file_meta,
-                    "snippet": get_snippet(src_lines, node.start_point, node.end_point),
-                },
-            }
+        item = {
+            "name": name,
+            "code_snippet": get_snippet(src_lines, node.start_point, node.end_point),
+            "item_type": item_type,
+            **file_meta,
+        }
 
         items.append(item)
 

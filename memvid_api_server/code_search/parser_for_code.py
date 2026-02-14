@@ -16,7 +16,6 @@ from .parser_common import (
     get_language_extractor,
     get_language_for_file,
     get_parser_for_language,
-    get_snippet,
     visit_files,
     write_jsonl,
 )
@@ -49,22 +48,11 @@ def extract_code_snippets(lang, src_code, file_path, root_dir):
     entries = []
 
     for extraction in extractor(root, src_lines):
-        if lang == "python":
-            node, item_type, name_node, docstring = extraction
-            name = name_node.text.decode()
-        else:
-            # JavaScript/TypeScript and C family
-            node, item_type, name_node = extraction
-            name = name_node.text.decode()
-            docstring = None
+        node, item_type, name_node = extraction
+        name = name_node.text.decode()
 
         start_line = node.start_point.row
         end_line = node.end_point.row
-        start_char = node.start_point.column
-        end_char = node.end_point.column
-
-        # Get exact definition
-        definition = get_snippet(src_lines, node.start_point, node.end_point)
 
         # Get surrounding context for LLM
         context_start, context_end, code_block = get_context_block(
@@ -73,15 +61,9 @@ def extract_code_snippets(lang, src_code, file_path, root_dir):
 
         entry = {
             "file": rel_path,
-            "start_line": start_line,
-            "start_character": start_char,
-            "end_line": end_line,
-            "end_character": end_char,
+            "item_name": name,
+            "item_type": item_type,
             "code_snippet": code_block,
-            "symbol_code": definition,
-            "symbol_name": name,
-            "symbol_type": item_type,
-            "hover_text": docstring or f"{item_type} {name}",
         }
 
         entries.append(entry)
