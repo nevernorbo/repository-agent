@@ -1,3 +1,4 @@
+import json
 import os
 import shutil
 import sys
@@ -30,6 +31,18 @@ class Repository(BaseModel):
 
 def get_repo_name_from_url(url: str) -> str:
     return Path(url).stem
+
+
+def get_result_snippets(results: dict) -> list:
+    snippets = []
+    if not results or "hits" not in results:
+        return []
+
+    for hit in results["hits"]:
+        snippet = hit.get("snippet", "")
+        snippets.append(snippet)
+
+    return snippets
 
 
 @app.post("/repository")
@@ -98,7 +111,8 @@ async def query_repository(repo_name: str, q: str):
 
     try:
         results = mem.find(q)
-        return results
+        formatted_results = get_result_snippets(results)
+        return formatted_results
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error during search: {e}")
 
