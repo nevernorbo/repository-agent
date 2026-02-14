@@ -13,6 +13,13 @@ code improvements to refactoring, and documentation requests to documenting agen
 
 from google.adk.agents import LlmAgent
 
+from .sub_agents import (
+    chat_agent,
+    coding_agent,
+    refactoring_agent,
+    documenting_agent,
+)
+
 MODEL = "gemini-2.5-flash"
 
 classifier_agent = LlmAgent(
@@ -60,4 +67,10 @@ When routing, pass along:
 
 Output your routing decision with clear reasoning.""",
     output_key="classifier_decision",
+    sub_agents=[
+        chat_agent,
+        coding_agent,
+        refactoring_agent,
+        documenting_agent,
+    ],
 )
