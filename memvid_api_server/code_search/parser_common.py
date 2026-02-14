@@ -5,11 +5,13 @@ This module provides shared functionality for parsing source code using tree-sit
 handling multiple languages, and extracting code definitions with various output formats.
 """
 
-import os
 import json
+import os
 from pathlib import Path
-from tree_sitter_language_pack import get_parser
+
 import pathspec
+from tree_sitter_language_pack import get_parser
+
 from .language_definitions import EXTENSION_LANG_MAP
 
 

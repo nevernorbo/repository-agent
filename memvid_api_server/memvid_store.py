@@ -1,7 +1,8 @@
 import json
-from pathlib import Path
 import os
-from memvid_sdk import use, create
+from pathlib import Path
+
+from memvid_sdk import create, use
 
 
 def ingest_to_memvid(code_jsonl, nl_path, memory_file="repo_memory.mv2"):

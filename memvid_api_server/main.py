@@ -1,19 +1,20 @@
-import sys
+import os
 import shutil
+import sys
+from pathlib import Path
+
 import uvicorn
 from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel
-from pathlib import Path
 from git import Repo
-import os
+from pydantic import BaseModel
 
 # Ensure the code_search module can be found
 sys.path.append(str(Path(__file__).resolve().parent))
 
 from code_search.parser_for_code import main as parse_code_main
 from code_search.parser_for_nl import main as parse_nl_main
-from memvid_store import ingest_to_memvid
 from memvid_sdk import use
+from memvid_store import ingest_to_memvid
 
 app = FastAPI()
 
@@ -23,11 +24,14 @@ loaded_memories = {}
 DATA_DIR = Path(__file__).resolve().parent / "data"
 DATA_DIR.mkdir(exist_ok=True)
 
+
 class Repository(BaseModel):
     repo_url: str
 
+
 def get_repo_name_from_url(url: str) -> str:
     return Path(url).stem
+
 
 @app.post("/repository")
 async def add_repository(repository: Repository):
@@ -48,25 +52,25 @@ async def add_repository(repository: Repository):
         # 2. Run parsers
         print("Parsing repository...")
         repo_str = str(repo_dir)
-        
+
         # We need to temporarily change sys.argv for the parsers
         original_argv = sys.argv
-        
+
         sys.argv = ["", repo_str]
         parse_code_main()
         parse_nl_main()
-        
+
         sys.argv = original_argv
         print("Parsing complete.")
-        
+
         # 3. Ingest to Memvid
         print("Ingesting into Memvid...")
         code_snippets_path = DATA_DIR / "code_snippets.jsonl"
         nl_snippets_path = DATA_DIR / "nl_snippets"
-        
+
         ingest_to_memvid(code_snippets_path, nl_snippets_path, str(memory_file))
         print(f"Ingestion complete. Memory file saved to {memory_file}")
-        
+
         # Clean up intermediate files
         if code_snippets_path.exists():
             os.remove(code_snippets_path)
@@ -89,8 +93,10 @@ async def query_repository(repo_name: str, q: str):
     else:
         memory_file = DATA_DIR / f"{repo_name}.mv2"
         if not memory_file.exists():
-            raise HTTPException(status_code=404, detail="Repository not found or not indexed yet.")
-        
+            raise HTTPException(
+                status_code=404, detail="Repository not found or not indexed yet."
+            )
+
         try:
             mem = use("basic", str(memory_file))
             loaded_memories[repo_name] = mem

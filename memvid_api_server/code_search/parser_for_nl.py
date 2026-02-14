@@ -5,18 +5,19 @@ Parses source code files to extract functions, classes, and other definitions
 with metadata. Output format includes name, signature, docstring, and line numbers.
 """
 
-import sys
 import os
+import sys
 from pathlib import Path
 
 from code_search.config import DATA_DIR
+
 from .language_definitions import LANGUAGES
 from .parser_common import (
+    get_language_extractor,
     get_language_for_file,
+    get_parser_for_language,
     get_snippet,
     visit_files,
-    get_language_extractor,
-    get_parser_for_language,
     write_ndjson,
 )
 
