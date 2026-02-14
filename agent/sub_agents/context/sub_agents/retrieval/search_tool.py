@@ -1,5 +1,5 @@
 """
-API Search Tool: Connects to the Qdrant knowledge base via REST API.
+API Search Tool: Connects to the Memvid2 knowledge base via REST API.
 
 This tool makes HTTP requests to the search API endpoint to retrieve
 relevant code context, documentation, and dependency information.
@@ -7,7 +7,8 @@ relevant code context, documentation, and dependency information.
 
 import requests
 
-SEARCH_API_URL = "http://localhost:8000/api/search"
+# URL for the new memvid_api_server
+SEARCH_API_URL = "http://localhost:8001/repository/msc-thesis-project/query"
 
 
 def search_codebase_api(query: str) -> dict:
@@ -18,15 +19,13 @@ def search_codebase_api(query: str) -> dict:
         query: The search query about the codebase
 
     Returns:
-        Dictionary containing search results with:
-        - 'status': 'success' or 'error'
-        - 'results': List of matched code contexts
-        - 'metadata': Information about the search
+        Dictionary containing search results.
     """
     try:
-        payload = {"query": query}
+        # The new endpoint takes the query as a 'q' parameter
+        params = {"q": query}
 
-        response = requests.get(SEARCH_API_URL, params=payload)
+        response = requests.get(SEARCH_API_URL, params=params)
         response.raise_for_status()
 
         return response.json()

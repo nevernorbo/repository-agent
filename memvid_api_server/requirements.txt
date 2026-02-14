@@ -1,0 +1,6 @@
+fastapi
+uvicorn[standard]
+gitpython
+tree-sitter-language-pack
+pathspec
+memvid-sdk

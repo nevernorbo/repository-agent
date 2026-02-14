@@ -24,8 +24,7 @@ retrieval_agent = LlmAgent(
 1. Receive a user prompt about their codebase
 2. Call the 'search_codebase_api' tool to search the knowledge base
 3. Extract and format the returned code context, documentation, and dependencies
-4. Add metadata about relevance scores and relationships
-5. Pass the enriched context to downstream agents
+5. Pass the enriched context to the next agent
 
 Important: Do not modify the actual code or documentation content, only enhance
 its presentation with relationship information.""",
