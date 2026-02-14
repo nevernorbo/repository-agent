@@ -5,7 +5,7 @@ from pathlib import Path
 from memvid_sdk import create, use
 
 
-def ingest_to_memvid(code_jsonl, nl_path, memory_file="repo_memory.mv2"):
+def ingest_to_memvid(code_jsonl, memory_file="repo_memory.mv2"):
     if os.path.exists(memory_file):
         mem = use("basic", memory_file, read_only=True)
     else:
@@ -16,39 +16,11 @@ def ingest_to_memvid(code_jsonl, nl_path, memory_file="repo_memory.mv2"):
         with open(code_jsonl, "r", encoding="utf-8") as code_file:
             for line in code_file:
                 e = json.loads(line)
-                text = f"File: {e['file']}\n\n{e['symbol_name']}\n{e['symbol_code']}"
                 mem.put(
                     title=e["file"],
                     label="code",
-                    text=text,
-                    metadata={
-                        "type": "syntactic",
-                        "file": e["file"],
-                        "line": e["start_line"],
-                        "symbol_type": e["symbol_type"],
-                    },
-                )
-                count += 1
-
-    if Path(nl_path).exists():
-        with open(nl_path, "r", encoding="utf-8") as nl_file:
-            for line in nl_file:
-                e = json.loads(line)
-                text = f"File: {e['context']['file_path']}\n\nFunction: {e['name']}\nSignature: {e['signature']}"
-
-                doc = e.get("docstring") or ""
-                if doc:
-                    text += f"\n\nDocstring: {doc}"
-
-                mem.put(
-                    title=e["context"]["file_path"],
-                    label="nl",
-                    text=text,
-                    metadata={
-                        "type": "semantic",
-                        "file": e["context"]["file_path"],
-                        "module": e["context"]["module"],
-                    },
+                    text=line,
+                    metadata={},
                 )
                 count += 1
 

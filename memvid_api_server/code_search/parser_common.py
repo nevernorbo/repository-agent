@@ -129,27 +129,6 @@ def visit_files(root_dir, skip_node_modules=True):
                 yield filepath
 
 
-def extract_docstring_python(node, src_lines):
-    """
-    Extract the docstring from a Python function or class node if present.
-
-    In Python AST, docstrings are usually the first string literal child node.
-
-    Args:
-        node (Node): Tree-sitter node representing a function or class.
-        src_lines (list of str): Source code lines.
-
-    Returns:
-        str or None: The extracted docstring text, stripped of quotes, or None if none found.
-    """
-    for child in node.children:
-        if child.type == "string":
-            start, end = child.start_point, child.end_point
-            text = get_snippet(src_lines, start, end)
-            return text.strip('"').strip("'")
-    return None
-
-
 def get_parser_for_language(lang):
     """
     Get a tree-sitter parser for the specified language.
@@ -192,9 +171,8 @@ def extract_nodes_python(node, src_lines):
     if node.type in ["function_definition", "class_definition"]:
         name_node = node.child_by_field_name("name")
         if name_node:
-            docstring = extract_docstring_python(node, src_lines)
             item_type = "Class" if node.type == "class_definition" else "Function"
-            yield (node, item_type, name_node, docstring)
+            yield (node, item_type, name_node)
 
     for child in node.children:
         yield from extract_nodes_python(child, src_lines)
