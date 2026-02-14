@@ -8,7 +8,8 @@ relevant code context, documentation, and dependency information.
 import requests
 
 # URL for the new memvid_api_server
-SEARCH_API_URL = "http://localhost:8001/repository/msc-thesis-project/query"
+# SEARCH_API_URL = "http://localhost:8001/repository/msc-thesis-project/query"
+SEARCH_API_URL = "http://localhost:8001/repository/query"
 
 
 def search_codebase_api(query: str) -> dict:

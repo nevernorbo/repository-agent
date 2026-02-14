@@ -18,8 +18,8 @@ from memvid_store import ingest_to_memvid
 
 app = FastAPI()
 
-# In-memory cache for loaded memories
-loaded_memories = {}
+# In-memory cache for loaded memory
+loaded_memory = None
 
 DATA_DIR = Path(__file__).resolve().parent / "data"
 DATA_DIR.mkdir(exist_ok=True)
@@ -46,7 +46,7 @@ def get_result_snippets(results: dict) -> list:
 
 
 @app.post("/repository")
-async def add_repository(repository: Repository):
+async def index_repository(repository: Repository):
     repo_name = get_repo_name_from_url(repository.repo_url)
     repo_dir = DATA_DIR / repo_name
     memory_file = DATA_DIR / f"{repo_name}.mv2"
@@ -92,40 +92,37 @@ async def add_repository(repository: Repository):
             shutil.rmtree(repo_dir)
 
 
-@app.get("/repository/{repo_name}/query")
-async def query_repository(repo_name: str, q: str):
-    if repo_name in loaded_memories:
-        mem = loaded_memories[repo_name]
-    else:
-        memory_file = DATA_DIR / f"{repo_name}.mv2"
-        if not memory_file.exists():
-            raise HTTPException(
-                status_code=404, detail="Repository not found or not indexed yet."
-            )
+@app.post("/repository/open/{repo_name}")
+async def open_repository(repo_name: str):
+    global loaded_memory
+    if loaded_memory is not None:
+        loaded_memory.close()
 
-        try:
-            mem = use("basic", str(memory_file))
-            loaded_memories[repo_name] = mem
-        except Exception as e:
-            raise HTTPException(status_code=500, detail=f"Failed to load memory: {e}")
+    memory_file = DATA_DIR / f"{repo_name}.mv2"
+    if not memory_file.exists():
+        raise HTTPException(
+            status_code=404, detail="Repository not found or not indexed yet."
+        )
 
     try:
-        results = mem.find(q)
+        mem = use("basic", str(memory_file))
+        loaded_memory = mem
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to load memory: {e}")
+
+
+@app.get("/repository/query")
+async def query_repository(q: str):
+    global loaded_memory
+    if loaded_memory is None:
+        raise HTTPException(status_code=500, detail=f"No memory is loaded: {e}")
+
+    try:
+        results = loaded_memory.find(q)
         formatted_results = get_result_snippets(results)
         return formatted_results
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error during search: {e}")
-
-
-@app.post("/repository/{repo_name}/close")
-async def close_memory(repo_name: str):
-    if repo_name in loaded_memories:
-        del loaded_memories[repo_name]
-        return {"message": f"Memory for repository '{repo_name}' has been closed."}
-    else:
-        raise HTTPException(
-            status_code=404, detail="Repository memory not found in cache."
-        )
 
 
 if __name__ == "__main__":
