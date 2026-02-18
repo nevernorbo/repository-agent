@@ -9,14 +9,15 @@ import sys
 from pathlib import Path
 
 from code_search.config import DATA_DIR
+
 from .language_definitions import LANGUAGES
 from .parser_common import (
-    get_language_for_file,
-    get_snippet,
     get_context_block,
-    visit_files,
     get_language_extractor,
+    get_language_for_file,
     get_parser_for_language,
+    get_snippet,
+    visit_files,
     write_jsonl,
 )
 

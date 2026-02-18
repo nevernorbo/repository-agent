@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 
-from code_search.searcher import CombinedSearcher
 from code_search.get_file import FileGet
+from code_search.searcher import CombinedSearcher
 
 app = FastAPI()
 

@@ -11,4 +11,3 @@ git clone https://github.com/nevernorbo/mean-flashcards.git /tmp/mean-flashcards
 REPO_PATH=/tmp/mean-flashcards bash -x tools/index_qdrant.sh /tmp/mean-flashcards
 
 rm -rf /tmp/mean-flashcards
-

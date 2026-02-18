@@ -1,13 +1,17 @@
-from pathlib import Path
-from tqdm import tqdm
-from qdrant_client.http import models as rest
-
-import qdrant_client
-import numpy as np
 import json
+from pathlib import Path
 
-from code_search.config import QDRANT_URL, QDRANT_API_KEY, DATA_DIR, QDRANT_CODE_COLLECTION_NAME
+import numpy as np
+import qdrant_client
+from code_search.config import (
+    DATA_DIR,
+    QDRANT_API_KEY,
+    QDRANT_CODE_COLLECTION_NAME,
+    QDRANT_URL,
+)
 from code_search.model.encoder import UniXcoderEmbeddingsProvider
+from qdrant_client.http import models as rest
+from tqdm import tqdm
 
 code_keys = [
     "code_snippet",
@@ -82,7 +86,7 @@ def encode_and_upload():
                 always_ram=True,
                 quantile=0.99,
             )
-        )
+        ),
     )
 
     print(f"Storing data in the collection {collection_name}")
@@ -94,5 +98,5 @@ def encode_and_upload():
     )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     encode_and_upload()

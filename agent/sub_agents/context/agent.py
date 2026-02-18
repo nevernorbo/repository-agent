@@ -5,8 +5,6 @@ from .sub_agents import (
     retrieval_agent,
 )
 
-MODEL_GEMINI_2_5_FLASH = "gemini-2.5-flash"
-
 # Stage 1: Parallel Context Retrieval
 # Both retrieval and prompt refinement happen simultaneously
 context_agent = ParallelAgent(

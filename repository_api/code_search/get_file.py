@@ -3,7 +3,7 @@ from typing import List
 from qdrant_client import QdrantClient
 from qdrant_client.http import models
 
-from code_search.config import QDRANT_URL, QDRANT_API_KEY, QDRANT_FILE_COLLECTION_NAME
+from code_search.config import QDRANT_API_KEY, QDRANT_FILE_COLLECTION_NAME, QDRANT_URL
 
 
 class FileGet:
@@ -31,13 +31,3 @@ class FileGet:
         )
 
         return [hit.payload for hit in result[0]]
-
-
-if __name__ == "__main__":
-    path = "lib/collection/src/collection_manager/optimizers/indexing_optimizer.rs"
-
-    searcher = FileGet()
-
-    res = searcher.get(path)
-    for hit in res:
-        print(hit)

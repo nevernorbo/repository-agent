@@ -1,8 +1,13 @@
-from pathlib import Path
-from qdrant_client import QdrantClient
 import json
+from pathlib import Path
 
-from code_search.config import QDRANT_URL, QDRANT_API_KEY, DATA_DIR, QDRANT_FILE_COLLECTION_NAME
+from code_search.config import (
+    DATA_DIR,
+    QDRANT_API_KEY,
+    QDRANT_FILE_COLLECTION_NAME,
+    QDRANT_URL,
+)
+from qdrant_client import QdrantClient
 
 
 def encode_and_upload():
@@ -18,14 +23,13 @@ def encode_and_upload():
         raise RuntimeError(f"File {input_file} does not exist. Skipping")
 
     payload = []
-    with open(input_file, 'r') as json_file:
+    with open(input_file, "r") as json_file:
         data = json.load(json_file)
         payload = data
 
     print(f"Recreating the collection {collection_name}")
     qdrant_client.recreate_collection(
-        collection_name=collection_name,
-        vectors_config={}
+        collection_name=collection_name, vectors_config={}
     )
 
     print(f"Storing data in the collection {collection_name}")
@@ -34,9 +38,9 @@ def encode_and_upload():
         payload=payload,
         vectors=[{}] * len(payload),
         ids=None,
-        batch_size=256
+        batch_size=256,
     )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     encode_and_upload()

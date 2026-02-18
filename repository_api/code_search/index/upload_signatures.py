@@ -2,13 +2,18 @@ import json
 from pathlib import Path
 
 import tqdm
+from code_search.config import (
+    DATA_DIR,
+    ENCODER_NAME,
+    ENCODER_SIZE,
+    QDRANT_API_KEY,
+    QDRANT_NLU_COLLECTION_NAME,
+    QDRANT_URL,
+)
+from code_search.index.textifier import textify
 from qdrant_client import QdrantClient, models
 from qdrant_client.models import Distance, VectorParams
 from sentence_transformers import SentenceTransformer
-
-from code_search.config import DATA_DIR, QDRANT_URL, QDRANT_API_KEY, QDRANT_NLU_COLLECTION_NAME, ENCODER_NAME, \
-    ENCODER_SIZE
-from code_search.index.textifier import textify
 
 file_name = Path(DATA_DIR) / "structures.json"
 
@@ -62,7 +67,7 @@ def upload():
                 always_ram=True,
                 quantile=0.99,
             )
-        )
+        ),
     )
 
     client.upload_collection(
@@ -72,5 +77,5 @@ def upload():
     )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     upload()

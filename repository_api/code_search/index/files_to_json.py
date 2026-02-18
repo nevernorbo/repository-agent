@@ -1,8 +1,10 @@
-import os.path
 import json
+import os.path
 from pathlib import Path
-from .language_definitions import EXTENSION_LANG_MAP
+
 from code_search.config import DATA_DIR
+
+from .language_definitions import EXTENSION_LANG_MAP
 
 
 def process_file(root_dir, file_path):

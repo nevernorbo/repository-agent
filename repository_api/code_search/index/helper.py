@@ -1,21 +1,18 @@
+import re
 from abc import abstractmethod
-from typing import Union, List, Optional
-
-from sentence_transformers import SentenceTransformer
-from transformers import AutoTokenizer, AutoModel
+from typing import List, Optional, Union
 
 import numpy as np
 import torch
-import re
-
 from code_search.model.unixcoder import UniXcoder
+from sentence_transformers import SentenceTransformer
+from transformers import AutoModel, AutoTokenizer
 
 
 class BaseEmbeddingsProvider:
-
     @abstractmethod
     def embed_code(
-            self, code: Optional[str] = None, docstring: Optional[str] = None
+        self, code: Optional[str] = None, docstring: Optional[str] = None
     ) -> np.array:
         """Converts code and/or docstring to vector"""
 

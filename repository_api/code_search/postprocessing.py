@@ -2,7 +2,9 @@ from collections import defaultdict
 from typing import List
 
 
-def merge_search_results(code_search_result: List[dict], nlu_search_result: List[dict]) -> List[dict]:
+def merge_search_results(
+    code_search_result: List[dict], nlu_search_result: List[dict]
+) -> List[dict]:
     """Merge search results from code and NLU searchers
 
     Args:
@@ -45,16 +47,18 @@ def merge_search_results(code_search_result: List[dict], nlu_search_result: List
         file = nlu_search_hit["context"]["file_path"]
         if file in code_search_result_by_file:
             nlu_search_hit["sub_matches"] = try_merge_overlapping_snippets(
-                code_search_result_by_file[file],
-                nlu_search_hit
+                code_search_result_by_file[file], nlu_search_hit
             )
-    nlu_search_result = sorted(nlu_search_result, key=lambda x: -len(x.get('sub_matches', [])))
+    nlu_search_result = sorted(
+        nlu_search_result, key=lambda x: -len(x.get("sub_matches", []))
+    )
 
     return nlu_search_result
 
 
-
-def try_merge_overlapping_snippets(code_search_results: List[dict], nlu_search_result: dict) -> List[dict]:
+def try_merge_overlapping_snippets(
+    code_search_results: List[dict], nlu_search_result: dict
+) -> List[dict]:
     """Find code search results that overlap with NLU search results and merge them
     Use nlu_search_result as a base for merging
 
@@ -89,9 +93,11 @@ def try_merge_overlapping_snippets(code_search_results: List[dict], nlu_search_r
         start = max(from_a, from_b)
         end = min(to_a, to_b)
         if start <= end:
-            overlapped.append({
-                "overlap_from": start,
-                "overlap_to": end,
-            })
+            overlapped.append(
+                {
+                    "overlap_from": start,
+                    "overlap_to": end,
+                }
+            )
 
     return overlapped
