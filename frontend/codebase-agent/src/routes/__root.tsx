@@ -1,8 +1,4 @@
 import { HeadContent, Scripts, createRootRoute } from "@tanstack/react-router";
-import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
-import { TanStackDevtools } from "@tanstack/react-devtools";
-
-import Header from "../components/Header";
 
 import ClerkProvider from "../integrations/clerk/provider";
 
@@ -19,7 +15,7 @@ export const Route = createRootRoute({
                 content: "width=device-width, initial-scale=1",
             },
             {
-                title: "TanStack Start Starter",
+                title: "Codebase agent",
             },
         ],
         links: [
@@ -40,9 +36,9 @@ function RootDocument({ children }: { children: React.ReactNode }) {
             </head>
             <body>
                 <ClerkProvider>
-                    <Header />
+                    {/*<Header />*/}
                     {children}
-                    <TanStackDevtools
+                    {/*<TanStackDevtools
                         config={{
                             position: "bottom-right",
                         }}
@@ -52,7 +48,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
                                 render: <TanStackRouterDevtoolsPanel />,
                             },
                         ]}
-                    />
+                    />*/}
                 </ClerkProvider>
                 <Scripts />
             </body>
