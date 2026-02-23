@@ -13,7 +13,7 @@ accurate, well-reasoned responses grounded in actual codebase content.
 
 from google.adk.agents import LlmAgent
 
-MODEL = "gemini-2.5-flash"
+from agent.config import MODEL
 
 chat_agent = LlmAgent(
     model=MODEL,

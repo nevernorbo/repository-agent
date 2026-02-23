@@ -16,8 +16,6 @@ from .sub_agents import (
     context_agent,
 )
 
-MODEL = "gemini-2.5-flash"
-
 root_agent = SequentialAgent(
     name="codebase_rag_agent",
     description="Multi-agent orchestrator for intelligent codebase interaction, analysis, and modification. Routes requests through retrieval, refinement and specialized agents.",

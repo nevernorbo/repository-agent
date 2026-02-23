@@ -12,7 +12,7 @@ functionality while enhancing quality, performance, or maintainability.
 
 from google.adk.agents import LlmAgent
 
-MODEL = "gemini-2.5-flash"
+from agent.config import MODEL
 
 refactoring_agent = LlmAgent(
     model=MODEL,

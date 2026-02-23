@@ -13,14 +13,14 @@ code improvements to refactoring, and documentation requests to documenting agen
 
 from google.adk.agents import LlmAgent
 
+from agent.config import MODEL
+
 from .sub_agents import (
     chat_agent,
     coding_agent,
-    refactoring_agent,
     documenting_agent,
+    refactoring_agent,
 )
-
-MODEL = "gemini-2.5-flash"
 
 classifier_agent = LlmAgent(
     model=MODEL,

@@ -1,28 +1,28 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import {
     PromptInput,
     PromptInputAction,
     PromptInputActions,
     PromptInputTextarea,
 } from "@/components/ui/prompt-input";
-import { Button } from "@/components/ui/button";
 import { ArrowUp, Square } from "lucide-react";
-import { useState } from "react";
+import { type Dispatch, type SetStateAction } from "react";
 
-export function AppPromptInput() {
-    const [input, setInput] = useState("");
-    const [isLoading, setIsLoading] = useState(false);
+interface Props {
+    input: string;
+    setInput: Dispatch<SetStateAction<string>>;
+    isLoading: boolean;
+    handleSubmit: () => void;
+}
 
-    const handleSubmit = () => {
-        setIsLoading(true);
-        // simulate request
-        setTimeout(() => {
-            setIsLoading(false);
-            setInput("");
-        }, 2000);
-    };
-
+export function AppPromptInput({
+    input,
+    setInput,
+    isLoading,
+    handleSubmit,
+}: Props) {
     const handleValueChange = (value: string) => {
         setInput(value);
     };

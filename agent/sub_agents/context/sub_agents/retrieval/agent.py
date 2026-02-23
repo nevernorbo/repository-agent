@@ -12,9 +12,10 @@ metadata about relevance and context relationships.
 """
 
 from google.adk.agents import LlmAgent
-from .search_tool import search_codebase_api
 
-MODEL = "gemini-2.5-flash"
+from agent.config import MODEL
+
+from .search_tool import search_codebase_api
 
 retrieval_agent = LlmAgent(
     model=MODEL,

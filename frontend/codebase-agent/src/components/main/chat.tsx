@@ -1,72 +1,55 @@
 "use client";
 
-import {
-    ChatContainerContent,
-    ChatContainerRoot,
-} from "@/components/ui/chat-container";
-import { Markdown } from "@/components/ui/markdown";
-import {
-    Message,
-    MessageAvatar,
-    MessageContent,
-} from "@/components/ui/message";
 import { useState } from "react";
+import { AppPromptInput } from "./app-prompt-input";
+import { Messages } from "./messages";
 
-interface Message {
+export interface IMessage {
     id: number;
     role: "assistant" | "user";
     content: string;
 }
 
 interface Props {
-    author: string;
-    repoName: string;
+    repository: string;
 }
 
-export function Chat({ author, repoName }: Props) {
-    const [messages, setMessages] = useState<Message[]>([]);
-    console.log(author);
-    return (
-        <div className="flex-1 flex w-full flex-col min-h-0">
-            <ChatContainerRoot className="flex-1">
-                <ChatContainerContent className="space-y-4 p-4 mx-auto max-w-(--breakpoint-md)">
-                    {messages.map((message) => {
-                        const isAssistant = message.role === "assistant";
+export function Chat({ repository }: Props) {
+    const [messages, setMessages] = useState<IMessage[]>([]);
+    const [isLoading, setIsLoading] = useState(false);
+    const [input, setInput] = useState("");
 
-                        return (
-                            <Message
-                                key={message.id}
-                                className={
-                                    message.role === "user"
-                                        ? "justify-end"
-                                        : "justify-start"
-                                }
-                            >
-                                {isAssistant && (
-                                    <MessageAvatar
-                                        src="/avatars/ai.png"
-                                        alt="AI Assistant"
-                                        fallback="AI"
-                                    />
-                                )}
-                                <div className="max-w-[85%] flex-1 sm:max-w-[75%]">
-                                    {isAssistant ? (
-                                        <div className="bg-secondary text-foreground prose rounded-lg p-2">
-                                            <Markdown>
-                                                {message.content}
-                                            </Markdown>
-                                        </div>
-                                    ) : (
-                                        <MessageContent className="bg-primary text-primary-foreground">
-                                            {message.content}
-                                        </MessageContent>
-                                    )}
-                                </div>
-                            </Message>
-                        );
-                    })}
-                </ChatContainerContent>
-            </ChatContainerRoot>
-        </div>
+    const handleSubmit = () => {
+        const message = input;
+        if (!message.trim()) return;
+
+        setIsLoading(true);
+        setInput("");
+
+        const newMessage = {
+            id: messages[messages.length - 1]?.id + 1,
+            content: message,
+            role: "user",
+        } as IMessage;
+
+        setMessages((prev) => [...prev, newMessage]);
+
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 5000);
+    };
+
+    return (
+        <>
+            <div className="flex-1 flex w-full flex-col min-h-0">
+                <Messages messages={messages} />
+            </div>
+            <AppPromptInput
+                handleSubmit={handleSubmit}
+                input={input}
+                setInput={setInput}
+                isLoading={isLoading}
+            />
+        </>
     );
 }

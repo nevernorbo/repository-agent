@@ -13,7 +13,7 @@ integration guides. Match the documentation style and conventions of the project
 
 from google.adk.agents import LlmAgent
 
-MODEL = "gemini-2.5-flash"
+from agent.config import MODEL
 
 documenting_agent = LlmAgent(
     model=MODEL,

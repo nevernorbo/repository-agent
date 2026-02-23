@@ -13,7 +13,7 @@ error handling, type hints, and documentation.
 
 from google.adk.agents import LlmAgent
 
-MODEL = "gemini-2.5-flash"
+from agent.config import MODEL
 
 coding_agent = LlmAgent(
     model=MODEL,

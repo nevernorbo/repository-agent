@@ -14,7 +14,7 @@ Instruction: You are a prompt engineering specialist. Your task is to:
 
 from google.adk.agents import LlmAgent
 
-MODEL = "gemini-2.5-flash"
+from agent.config import MODEL
 
 prompt_refinement_agent = LlmAgent(
     model=MODEL,
