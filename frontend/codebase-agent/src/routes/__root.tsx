@@ -6,6 +6,7 @@ import appCss from "../styles.css?url";
 import { AppMain } from "@/components/main/app-main";
 import { AppSidebar } from "@/components/sidebar/app-sidebar";
 import { SidebarProvider } from "@/components/ui/sidebar";
+import { Toaster } from "sonner";
 
 export const Route = createRootRoute({
     head: () => ({
@@ -42,6 +43,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
                     <SidebarProvider>
                         <AppSidebar />
                         <AppMain>{children}</AppMain>
+                        <Toaster />
                     </SidebarProvider>
                 </ClerkProvider>
                 <Scripts />

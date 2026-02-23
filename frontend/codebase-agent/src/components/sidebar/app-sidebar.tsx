@@ -9,12 +9,16 @@ import {
     SidebarTrigger,
     useSidebar,
 } from "@/components/ui/sidebar";
+import { Loader2 } from "lucide-react";
+import { useState } from "react";
 import { AppSidebarTitle } from "./app-sidebar-title";
-import { Repositories } from "./repositories";
 import { IndexRepository } from "./index-repository";
+import { Repositories } from "./repositories";
 
 export function AppSidebar() {
     const { open } = useSidebar();
+    const [isIndexing, setIsIndexing] = useState(false);
+    const [trigger, setTrigger] = useState(0);
 
     return (
         <Sidebar collapsible="icon">
@@ -22,12 +26,24 @@ export function AppSidebar() {
                 <AppSidebarTitle />
             </SidebarHeader>
             <SidebarContent>
-                <IndexRepository />
+                <IndexRepository
+                    isIndexing={isIndexing}
+                    setIsIndexing={setIsIndexing}
+                    refreshSidebar={() => setTrigger((prev) => prev + 1)}
+                />
                 {open && (
                     <>
+                        {isIndexing && (
+                            <>
+                                <div className="flex items-center gap-2 p-4 text-sm text-muted-foreground">
+                                    <Loader2 className="size-4 animate-spin" />
+                                    <span>Indexing in progress...</span>
+                                </div>
+                            </>
+                        )}
                         <SidebarGroupLabel>Repositories</SidebarGroupLabel>
                         <SidebarGroup>
-                            <Repositories />
+                            <Repositories refreshSidebar={trigger} />
                         </SidebarGroup>
                     </>
                 )}

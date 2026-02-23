@@ -3,7 +3,13 @@ import { Loader2 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "../ui/sidebar";
 
-export function Repositories() {
+interface Props {
+    refreshSidebar: number;
+}
+
+export function Repositories({ refreshSidebar }: Props) {
+    useEffect(() => {}, [refreshSidebar]);
+
     const [repos, setRepos] = useState<string[]>([]);
     const [loading, setLoading] = useState(true);
 
@@ -33,7 +39,7 @@ export function Repositories() {
     if (loading) {
         return (
             <div className="flex items-center gap-2 p-4 text-sm text-muted-foreground">
-                <Loader2 className="h-4 w-4 animate-spin" />
+                <Loader2 className="size-4 animate-spin" />
                 <span>Loading repositories...</span>
             </div>
         );

@@ -14,7 +14,7 @@ import {
     SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import { BookPlus, Github, Loader2, Search, Star } from "lucide-react";
-import { useState } from "react";
+import { useState, type Dispatch, type SetStateAction } from "react";
 import { toast } from "sonner";
 
 interface GithubRepo {
@@ -24,12 +24,17 @@ interface GithubRepo {
     stargazers_count: number;
 }
 
-export function IndexRepository() {
+interface Props {
+    isIndexing: boolean;
+    setIsIndexing: Dispatch<SetStateAction<boolean>>;
+    refreshSidebar: () => void;
+}
+
+export function IndexRepository({ isIndexing, setIsIndexing, refreshSidebar }: Props) {
     const [open, setOpen] = useState(false);
     const [username, setUsername] = useState("");
     const [repos, setRepos] = useState<GithubRepo[]>([]);
     const [loading, setLoading] = useState(false);
-    const [isIndexing, setIsIndexing] = useState(false);
 
     const fetchRepos = async () => {
         if (!username) return;
@@ -71,18 +76,49 @@ export function IndexRepository() {
 
             if (!response.ok) throw new Error("Failed to trigger indexing");
 
+            toast.success("Indexing...");
+
             const data = await response.json();
 
-            toast.success("Success", {
-                description: data.message, // "Indexing started for author/repo"
-            });
+            if (response.ok) {
+                toast.success("Cloned", {
+                    description: data.message,
+                });
+                startPolling(fullName);
+            }
         } catch (error) {
             toast.error("Error", {
                 description: "Could not start the indexing process.",
             });
-        } finally {
-            setIsIndexing(false);
         }
+    };
+
+    const startPolling = (repoName: string) => {
+        const interval = setInterval(async () => {
+            try {
+                // Encode the name because it contains a slash
+                const res = await fetch(
+                    `http://localhost:8000/api/index/status/${encodeURIComponent(repoName)}`
+                );
+                const data = await res.json();
+
+                if (data.status === "completed") {
+                    clearInterval(interval);
+                    toast.success("Success!", {
+                        description: `${repoName} is now indexed.`,
+                    });
+                    setIsIndexing(false);
+                    refreshSidebar();
+                } else if (data.status.startsWith("failed")) {
+                    clearInterval(interval);
+                    toast.error("Indexing failed", {
+                        description: data.status,
+                    });
+                }
+            } catch (e) {
+                console.error("Polling error", e);
+            }
+        }, 1000);
     };
 
     return (

@@ -1,7 +1,7 @@
 import os
 import shutil
 import subprocess
-from typing import List
+from typing import Dict, List
 
 from fastapi import BackgroundTasks, FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -25,6 +25,8 @@ app.add_middleware(
 searcher = CombinedSearcher()
 repo_searcher = RepoSearcher()
 
+indexing_status: Dict[str, str] = {}
+
 
 @app.get("/api/repositories", response_model=List[str])
 async def get_repositories():
@@ -41,6 +43,15 @@ async def get_repositories():
         # Log the error for debugging (standard for software engineers)
         print(f"Error fetching from Qdrant: {e}")
         return []
+
+
+def wrapped_indexing_pipeline(path: str, repo_name: str):
+    indexing_status[repo_name] = "indexing"
+    try:
+        run_indexing_pipeline(path, repo_name)
+        indexing_status[repo_name] = "completed"
+    except Exception as e:
+        indexing_status[repo_name] = f"failed: {str(e)}"
 
 
 def run_indexing_pipeline(repo_path: str, repo_name):
@@ -99,9 +110,18 @@ async def index_repository(background_tasks: BackgroundTasks, request: IndexRequ
         raise HTTPException(status_code=500, detail="Failed to clone repository")
 
     # Run the heavy indexing work in the background to avoid blocking the API
-    background_tasks.add_task(run_indexing_pipeline, TMP_REPO_DIR, request.repo_name)
+    indexing_status[request.repo_name] = "cloned"
+    background_tasks.add_task(
+        wrapped_indexing_pipeline, TMP_REPO_DIR, request.repo_name
+    )
 
-    return {"message": f"Indexing started for {request.repo_name}"}
+    return {"message": "cloning successful, indexing started"}
+
+
+@app.get("/api/index/status/{repo_name:path}")
+async def get_status(repo_name: str):
+    status = indexing_status.get(repo_name, "not_started")
+    return {"repo_name": repo_name, "status": status}
 
 
 @app.get("/api/search")
