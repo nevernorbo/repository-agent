@@ -10,7 +10,10 @@ services:
     agent:
         build: ./agent
         container_name: agent_api
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
         environment:
+            - OLLAMA_API_BASE=http://host.docker.internal:11434
             - GOOGLE_GENAI_USE_VERTEXAI
             - GOOGLE_API_KEY
         ports:
