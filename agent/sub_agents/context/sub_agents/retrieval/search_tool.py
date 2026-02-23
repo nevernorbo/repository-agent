@@ -6,11 +6,12 @@ relevant code context, documentation, and dependency information.
 """
 
 import requests
+from google.adk.tools.tool_context import ToolContext
 
-# SEARCH_API_URL = "http://localhost:8001/repository/query"
 SEARCH_API_URL = "http://localhost:8000/api/search"
 
-def search_codebase_api(query: str) -> dict:
+
+def search_codebase_api(query: str, tool_context: ToolContext) -> dict:
     """
     Search the codebase knowledge base via REST API.
 
@@ -21,8 +22,17 @@ def search_codebase_api(query: str) -> dict:
         Dictionary containing search results.
     """
     try:
-        # The new endpoint takes the query as a 'q' parameter
-        params = {"q": query}
+        repo_name = tool_context.state.get("repository")
+        print("Invoking search tool on repo: ", repo_name)
+
+        if not repo_name:
+            return {
+                "status": "error",
+                "error": "No repository found in the current agent session state.",
+                "results": [],
+            }
+
+        params = {"query": query, "repo_name": repo_name}
 
         response = requests.get(SEARCH_API_URL, params=params)
         response.raise_for_status()

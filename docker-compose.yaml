@@ -1,9 +1,40 @@
 services:
-  repository_api:
-    build: ./repository_api
-    container_name: repository_api
-    environment:
-      - QDRANT_URL
-      - QDRANT_API_KEY
-    ports:
-      - 8000:8000
+    repository_api:
+        build: ./repository_api
+        container_name: repository_api
+        environment:
+            - QDRANT_URL
+            - QDRANT_API_KEY
+        ports:
+            - 8000:8000
+    agent:
+        build: ./agent
+        container_name: agent_api
+        environment:
+            - GOOGLE_GENAI_USE_VERTEXAI
+            - GOOGLE_API_KEY
+        ports:
+            - 8100:8100
+    frontend:
+        build: ./frontend
+        container_name: frontend
+        environment:
+            - HOST=0.0.0.0
+            - PORT=3000
+            - VITE_SENTRY_DSN
+            - VITE_SENTRY_ORG
+            - VITE_SENTRY_PROJECT
+            - SENTRY_AUTH_TOKEN
+            - VITE_CLERK_PUBLISHABLE_KEY
+            - CLERK_SECRET_KEY
+        ports:
+            - 3000:3000
+        develop:
+            watch:
+                - action: sync
+                  path: ./frontend/codebase-agent
+                  target: /app/frontend/codebase-agent
+                  ignore:
+                      - node_modules/
+                - action: rebuild
+                  path: frontend/codebase-agent/package.json

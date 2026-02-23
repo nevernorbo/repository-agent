@@ -72,6 +72,13 @@ def upload():
                 )
             ),
         )
+
+        print("Creating index on 'repo_name' field")
+        client.create_payload_index(
+            collection_name=collection_name,
+            field_name="repo_name",
+            field_schema=models.PayloadSchemaType.KEYWORD,
+        )
     else:
         print(f"Collection {collection_name} exists. Appending new records.")
 

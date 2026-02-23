@@ -13,6 +13,7 @@ from code_search.searcher import CombinedSearcher
 app = FastAPI()
 origins = [
     "http://localhost:3000",  # Common React port
+    "http://localhost:8100",
 ]
 app.add_middleware(
     CORSMiddleware,
@@ -125,8 +126,8 @@ async def get_status(repo_name: str):
 
 
 @app.get("/api/search")
-async def search(query: str):
-    return {"result": searcher.search(query, limit=5)}
+async def search(query: str, repo_name: str):
+    return {"result": searcher.search(query, repo_name, limit=5)}
 
 
 if __name__ == "__main__":
