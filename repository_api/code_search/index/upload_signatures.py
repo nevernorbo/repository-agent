@@ -1,7 +1,12 @@
 import json
+import uuid
 from pathlib import Path
 
 import tqdm
+from qdrant_client import QdrantClient, models
+from qdrant_client.models import Distance, VectorParams
+from sentence_transformers import SentenceTransformer
+
 from code_search.config import (
     DATA_DIR,
     ENCODER_NAME,
@@ -11,9 +16,6 @@ from code_search.config import (
     QDRANT_URL,
 )
 from code_search.index.textifier import textify
-from qdrant_client import QdrantClient, models
-from qdrant_client.models import Distance, VectorParams
-from sentence_transformers import SentenceTransformer
 
 file_name = Path(DATA_DIR) / "structures.json"
 
@@ -53,27 +55,35 @@ def upload():
         prefer_grpc=True,
     )
 
-    print(f"Recreating the collection {collection_name}")
-    client.recreate_collection(
-        collection_name=collection_name,
-        vectors_config=VectorParams(
-            size=ENCODER_SIZE,
-            distance=Distance.COSINE,
-            on_disk=True,
-        ),
-        quantization_config=models.ScalarQuantization(
-            scalar=models.ScalarQuantizationConfig(
-                type=models.ScalarType.INT8,
-                always_ram=True,
-                quantile=0.99,
-            )
-        ),
-    )
+    if not client.collection_exists(collection_name):
+        print(f"Collection {collection_name} not found. Creating...")
+        client.create_collection(
+            collection_name=collection_name,
+            vectors_config=VectorParams(
+                size=ENCODER_SIZE,
+                distance=Distance.COSINE,
+                on_disk=True,
+            ),
+            quantization_config=models.ScalarQuantization(
+                scalar=models.ScalarQuantizationConfig(
+                    type=models.ScalarType.INT8,
+                    always_ram=True,
+                    quantile=0.99,
+                )
+            ),
+        )
+    else:
+        print(f"Collection {collection_name} exists. Appending new records.")
+
+    vectors = list(encode())
+    payloads = list(tqdm.tqdm(load_records()))
+    point_ids = [str(uuid.uuid4()) for _ in range(len(vectors))]
 
     client.upload_collection(
         collection_name=collection_name,
-        vectors=encode(),
-        payload=tqdm.tqdm(load_records()),
+        ids=point_ids,
+        vectors=vectors,
+        payload=payloads,
     )
 
 

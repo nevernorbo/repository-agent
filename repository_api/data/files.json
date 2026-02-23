@@ -1,5 +1,6 @@
 [
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "backend/src/routes.ts",
     "code": [
       "import * as express from \"express\";\n",
@@ -24,6 +25,7 @@
     "endline": 17
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "backend/src/database.ts",
     "code": [
       "import * as mongodb from \"mongodb\";\n",
@@ -58,6 +60,7 @@
     "endline": 27
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "backend/src/server.ts",
     "code": [
       "import cookieParser from \"cookie-parser\";\n",
@@ -112,6 +115,7 @@
     "endline": 47
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "backend/src/config/passport.ts",
     "code": [
       "import * as argon2 from \"argon2\";\n",
@@ -268,6 +272,7 @@
     "endline": 149
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "backend/src/config/cors.ts",
     "code": [
       "import { Express } from \"express\";\n",
@@ -294,6 +299,7 @@
     "endline": 19
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "backend/src/routes/auth.routes.ts",
     "code": [
       "import * as argon2 from \"argon2\";\n",
@@ -435,6 +441,7 @@
     "endline": 134
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "backend/src/routes/cardCollection.routes.ts",
     "code": [
       "import * as express from \"express\";\n",
@@ -619,6 +626,7 @@
     "endline": 177
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "backend/src/routes/cardCollections.routes.ts",
     "code": [
       "import * as express from \"express\";\n",
@@ -680,6 +688,7 @@
     "endline": 54
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "backend/src/routes/profile.routes.ts",
     "code": [
       "import * as express from \"express\";\n",
@@ -793,6 +802,7 @@
     "endline": 106
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "backend/src/routes/admin.routes.ts",
     "code": [
       "import * as express from \"express\";\n",
@@ -876,6 +886,7 @@
     "endline": 76
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "backend/src/routes/cards.routes.ts",
     "code": [
       "import * as express from \"express\";\n",
@@ -1023,6 +1034,7 @@
     "endline": 140
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "backend/src/models/user.ts",
     "code": [
       "import { ObjectId } from \"mongodb\";\n",
@@ -1065,6 +1077,7 @@
     "endline": 35
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "backend/src/models/card.ts",
     "code": [
       "import { ObjectId } from \"mongodb\";\n",
@@ -1100,6 +1113,7 @@
     "endline": 28
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/tailwind.config.js",
     "code": [
       "/** @type {import('tailwindcss').Config} */\n",
@@ -1176,6 +1190,7 @@
     "endline": 69
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/main.ts",
     "code": [
       "import { bootstrapApplication } from '@angular/platform-browser';\n",
@@ -1189,6 +1204,7 @@
     "endline": 6
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/app.component.ts",
     "code": [
       "import { Component } from '@angular/core';\n",
@@ -1223,6 +1239,7 @@
     "endline": 27
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/app.config.ts",
     "code": [
       "import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';\n",
@@ -1250,6 +1267,7 @@
     "endline": 20
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/app.routes.ts",
     "code": [
       "import { Routes } from '@angular/router';\n",
@@ -1333,6 +1351,7 @@
     "endline": 76
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/shared/components/not-found/not-found.component.ts",
     "code": [
       "import { Component } from '@angular/core';\n",
@@ -1353,6 +1372,7 @@
     "endline": 13
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/shared/components/not-found/not-found.component.spec.ts",
     "code": [
       "import { ComponentFixture, TestBed } from '@angular/core/testing';\n",
@@ -1383,6 +1403,7 @@
     "endline": 23
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/shared/components/notification/components/notification.component.ts",
     "code": [
       "import { Component, OnInit, signal } from '@angular/core';\n",
@@ -1466,6 +1487,7 @@
     "endline": 76
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/shared/components/notification/services/notification.service.ts",
     "code": [
       "import { Injectable } from '@angular/core';\n",
@@ -1489,6 +1511,7 @@
     "endline": 16
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/shared/components/notification/models/notification.ts",
     "code": [
       "export interface Notification {\n",
@@ -1502,6 +1525,7 @@
     "endline": 6
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/shared/components/confirm-popup/confirm-popup.ts",
     "code": [
       "import { Component, input, output } from '@angular/core';\n",
@@ -1565,6 +1589,7 @@
     "endline": 56
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/shared/components/form-input/form-input.component.ts",
     "code": [
       "import { NgClass } from '@angular/common';\n",
@@ -1687,6 +1712,7 @@
     "endline": 115
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/shared/components/navbar/navbar.component.ts",
     "code": [
       "import { NgClass } from '@angular/common';\n",
@@ -1776,6 +1802,7 @@
     "endline": 82
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/shared/components/navbar/components/toggle-theme-button/toggle-theme-button.ts",
     "code": [
       "import { Component, effect, signal } from '@angular/core';\n",
@@ -1843,6 +1870,7 @@
     "endline": 60
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/shared/components/navbar/components/profile-nav-item/profile-nav-item.ts",
     "code": [
       "import {\n",
@@ -1932,6 +1960,7 @@
     "endline": 82
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/shared/components/button/outlined-button.component.ts",
     "code": [
       "import { Component, input, output } from '@angular/core';\n",
@@ -1967,6 +1996,7 @@
     "endline": 28
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/shared/components/button/button.component.ts",
     "code": [
       "import { Component, input, output } from '@angular/core';\n",
@@ -2001,6 +2031,7 @@
     "endline": 27
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/features/profile/service/profile.service.ts",
     "code": [
       "import { HttpClient } from '@angular/common/http';\n",
@@ -2060,6 +2091,7 @@
     "endline": 52
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/features/profile/components/profile-editing-view/profile-editing-view.component.ts",
     "code": [
       "import { Component, input, OnInit, output } from '@angular/core';\n",
@@ -2140,6 +2172,7 @@
     "endline": 73
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/features/profile/components/profile-normal-view/profile-normal-view.component.ts",
     "code": [
       "import { DatePipe } from '@angular/common';\n",
@@ -2201,6 +2234,7 @@
     "endline": 54
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/features/profile/models/profile.ts",
     "code": [
       "export interface EditProfileForm {\n",
@@ -2214,6 +2248,7 @@
     "endline": 6
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/features/profile/pages/profile.component.ts",
     "code": [
       "import { Component, computed, OnDestroy, OnInit, signal } from '@angular/core';\n",
@@ -2285,6 +2320,7 @@
     "endline": 64
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/features/collections/components/collection-card/card-skeleton.component.ts",
     "code": [
       "import { Component } from '@angular/core';\n",
@@ -2336,6 +2372,7 @@
     "endline": 44
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/features/collections/components/collection-card/card.component.ts",
     "code": [
       "import { DatePipe } from '@angular/common';\n",
@@ -2434,6 +2471,7 @@
     "endline": 91
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/features/collections/components/flash-cards/flash-cards.component.ts",
     "code": [
       "import {\n",
@@ -2572,6 +2610,7 @@
     "endline": 131
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/features/collections/components/edit-flash-card/edit-flash-card.component.ts",
     "code": [
       "import { Component, input, OnInit, output } from '@angular/core';\n",
@@ -2673,6 +2712,7 @@
     "endline": 94
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/features/collections/components/collection-cards/collection-cards.component.ts",
     "code": [
       "import { Component, output, signal } from '@angular/core';\n",
@@ -2758,6 +2798,7 @@
     "endline": 78
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/features/collections/components/flash-card/flash-card.component.ts",
     "code": [
       "import {\n",
@@ -2803,6 +2844,7 @@
     "endline": 38
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/features/collections/services/cards.service.ts",
     "code": [
       "import { HttpClient } from '@angular/common/http';\n",
@@ -2885,6 +2927,7 @@
     "endline": 75
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/features/collections/services/collection.service.ts",
     "code": [
       "import { Injectable, signal } from '@angular/core';\n",
@@ -3016,6 +3059,7 @@
     "endline": 124
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/features/collections/models/card.interface.ts",
     "code": [
       "export interface CardCollection {\n",
@@ -3055,6 +3099,7 @@
     "endline": 32
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/features/collections/pages/edit-collection/edit-collection.component.ts",
     "code": [
       "import { Component, output } from '@angular/core';\n",
@@ -3128,6 +3173,7 @@
     "endline": 66
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/features/collections/pages/new-collection/new-collection.component.ts",
     "code": [
       "import { Component, output } from '@angular/core';\n",
@@ -3186,6 +3232,7 @@
     "endline": 51
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/features/collections/pages/collections/collections.component.ts",
     "code": [
       "import { Component, signal } from '@angular/core';\n",
@@ -3214,6 +3261,7 @@
     "endline": 21
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/features/collections/pages/collections/collections.component.spec.ts",
     "code": [
       "import { ComponentFixture, TestBed } from '@angular/core/testing';\n",
@@ -3244,6 +3292,7 @@
     "endline": 23
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/features/collections/pages/collection/collection.component.ts",
     "code": [
       "import { DatePipe, NgClass } from '@angular/common';\n",
@@ -3403,6 +3452,7 @@
     "endline": 152
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/features/admin/services/admin.service.ts",
     "code": [
       "import { HttpClient } from '@angular/common/http';\n",
@@ -3465,6 +3515,7 @@
     "endline": 55
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/features/admin/pages/admin.component.ts",
     "code": [
       "import { DatePipe } from '@angular/common';\n",
@@ -3505,6 +3556,7 @@
     "endline": 33
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/features/register/components/single-sign-on-options/single-sign-on-options.component.ts",
     "code": [
       "import { Component } from '@angular/core';\n",
@@ -3562,6 +3614,7 @@
     "endline": 50
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/features/register/pages/register/register.component.ts",
     "code": [
       "import { Component, OnInit } from '@angular/core';\n",
@@ -3613,6 +3666,7 @@
     "endline": 44
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/features/home/pages/home/home.component.ts",
     "code": [
       "import { Component, OnInit } from '@angular/core';\n",
@@ -3638,6 +3692,7 @@
     "endline": 18
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/features/login/components/login-failure/login-failure.component.ts",
     "code": [
       "import { Component } from '@angular/core';\n",
@@ -3662,6 +3717,7 @@
     "endline": 17
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/features/login/components/login-failure/login-failure.component.spec.ts",
     "code": [
       "import { ComponentFixture, TestBed } from '@angular/core/testing';\n",
@@ -3692,6 +3748,7 @@
     "endline": 23
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/features/login/pages/login/login.component.ts",
     "code": [
       "import { Component } from '@angular/core';\n",
@@ -3742,6 +3799,7 @@
     "endline": 43
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/core/auth/services/auth.service.spec.ts",
     "code": [
       "import { TestBed } from '@angular/core/testing';\n",
@@ -3765,6 +3823,7 @@
     "endline": 16
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/core/auth/services/auth.service.ts",
     "code": [
       "import { HttpClient } from '@angular/common/http';\n",
@@ -3893,6 +3952,7 @@
     "endline": 121
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/core/auth/guards/admin.guard.ts",
     "code": [
       "import { inject } from '@angular/core';\n",
@@ -3932,6 +3992,7 @@
     "endline": 32
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/core/auth/guards/auth.guard.spec.ts",
     "code": [
       "import { TestBed } from '@angular/core/testing';\n",
@@ -3956,6 +4017,7 @@
     "endline": 17
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/core/auth/guards/admin.guard.spec.ts",
     "code": [
       "import { TestBed } from '@angular/core/testing';\n",
@@ -3980,6 +4042,7 @@
     "endline": 17
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/core/auth/guards/auth.guard.ts",
     "code": [
       "import { inject } from '@angular/core';\n",
@@ -4012,6 +4075,7 @@
     "endline": 25
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/core/auth/models/user.interface.ts",
     "code": [
       "export interface PublicUser {\n",
@@ -4035,6 +4099,7 @@
     "endline": 16
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/core/auth/models/auth.interface.ts",
     "code": [
       "export interface LoginForm {\n",
@@ -4053,6 +4118,7 @@
     "endline": 11
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/core/lib/utils.ts",
     "code": [
       "import { twMerge } from 'tailwind-merge'\n",
@@ -4066,6 +4132,7 @@
     "endline": 6
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/core/interceptors/logging/logging.interceptor.ts",
     "code": [
       "import { HttpInterceptorFn } from '@angular/common/http';\n",
@@ -4079,6 +4146,7 @@
     "endline": 6
   },
   {
+    "repo_name": "nevernorbo/mean-flashcards",
     "path": "frontend/nice-cards/src/app/core/interceptors/logging/logging.interceptor.spec.ts",
     "code": [
       "import { TestBed } from '@angular/core/testing';\n",

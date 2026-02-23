@@ -6,6 +6,7 @@ surrounding context blocks for use in language model applications.
 """
 
 import sys
+import os
 from pathlib import Path
 
 from code_search.config import DATA_DIR
@@ -37,6 +38,7 @@ def extract_code_snippets(lang, src_code, file_path, root_dir):
     """
     src_lines = src_code.splitlines()
     rel_path = str(Path(file_path).relative_to(root_dir))
+    repo_name = os.getenv("REPO_NAME")
 
     parser = get_parser_for_language(lang)
     tree = parser.parse(src_code.encode("utf-8"))
@@ -72,6 +74,7 @@ def extract_code_snippets(lang, src_code, file_path, root_dir):
         )
 
         entry = {
+            "repo_name": repo_name,
             "file": rel_path,
             "start_line": start_line,
             "start_character": start_char,

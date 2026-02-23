@@ -1,8 +1,12 @@
 import json
+import uuid
 from pathlib import Path
 
 import numpy as np
 import qdrant_client
+from qdrant_client.http import models as rest
+from tqdm import tqdm
+
 from code_search.config import (
     DATA_DIR,
     QDRANT_API_KEY,
@@ -10,8 +14,6 @@ from code_search.config import (
     QDRANT_URL,
 )
 from code_search.model.encoder import UniXcoderEmbeddingsProvider
-from qdrant_client.http import models as rest
-from tqdm import tqdm
 
 code_keys = [
     "code_snippet",
@@ -72,27 +74,34 @@ def encode_and_upload():
 
     print(f"Embeddings shape: ({len(embeddings)}, {len(embeddings[0])})")
 
-    print(f"Recreating the collection {collection_name}")
-    client.recreate_collection(
-        collection_name=collection_name,
-        vectors_config=rest.VectorParams(
-            size=len(embeddings[1]),
-            distance=rest.Distance.COSINE,
-            on_disk=True,
-        ),
-        quantization_config=rest.ScalarQuantization(
-            scalar=rest.ScalarQuantizationConfig(
-                type=rest.ScalarType.INT8,
-                always_ram=True,
-                quantile=0.99,
-            )
-        ),
-    )
+    # 1. Check if collection exists instead of recreating
+    if not client.collection_exists(collection_name):
+        print(f"Creating collection {collection_name}")
+        client.create_collection(
+            collection_name=collection_name,
+            vectors_config=rest.VectorParams(
+                size=len(embeddings[0]),  # Standardized to first index
+                distance=rest.Distance.COSINE,
+                on_disk=True,
+            ),
+            quantization_config=rest.ScalarQuantization(
+                scalar=rest.ScalarQuantizationConfig(
+                    type=rest.ScalarType.INT8,
+                    always_ram=True,
+                    quantile=0.99,
+                )
+            ),
+        )
+    else:
+        print(f"Collection {collection_name} already exists. Appending data.")
+
+    # 2. Use UUIDs for IDs to avoid overwriting existing points (0, 1, 2...)
+    point_ids = [str(uuid.uuid4()) for _ in range(len(embeddings))]
 
     print(f"Storing data in the collection {collection_name}")
     client.upload_collection(
         collection_name=collection_name,
-        ids=[i for i, _ in enumerate(embeddings)],
+        ids=point_ids,
         vectors=embeddings,
         payload=payloads,
     )

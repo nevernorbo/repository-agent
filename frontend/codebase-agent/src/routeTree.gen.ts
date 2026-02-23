@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as RepositoryIdRouteImport } from './routes/repository.$id'
 import { Route as DemoClerkRouteImport } from './routes/demo/clerk'
 import { Route as DemoSentryTestingRouteImport } from './routes/demo/sentry.testing'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RepositoryIdRoute = RepositoryIdRouteImport.update({
+  id: '/repository/$id',
+  path: '/repository/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DemoClerkRoute = DemoClerkRouteImport.update({
@@ -32,30 +38,39 @@ const DemoSentryTestingRoute = DemoSentryTestingRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/demo/clerk': typeof DemoClerkRoute
+  '/repository/$id': typeof RepositoryIdRoute
   '/demo/sentry/testing': typeof DemoSentryTestingRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/demo/clerk': typeof DemoClerkRoute
+  '/repository/$id': typeof RepositoryIdRoute
   '/demo/sentry/testing': typeof DemoSentryTestingRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/demo/clerk': typeof DemoClerkRoute
+  '/repository/$id': typeof RepositoryIdRoute
   '/demo/sentry/testing': typeof DemoSentryTestingRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/demo/clerk' | '/demo/sentry/testing'
+  fullPaths: '/' | '/demo/clerk' | '/repository/$id' | '/demo/sentry/testing'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/demo/clerk' | '/demo/sentry/testing'
-  id: '__root__' | '/' | '/demo/clerk' | '/demo/sentry/testing'
+  to: '/' | '/demo/clerk' | '/repository/$id' | '/demo/sentry/testing'
+  id:
+    | '__root__'
+    | '/'
+    | '/demo/clerk'
+    | '/repository/$id'
+    | '/demo/sentry/testing'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DemoClerkRoute: typeof DemoClerkRoute
+  RepositoryIdRoute: typeof RepositoryIdRoute
   DemoSentryTestingRoute: typeof DemoSentryTestingRoute
 }
 
@@ -66,6 +81,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/repository/$id': {
+      id: '/repository/$id'
+      path: '/repository/$id'
+      fullPath: '/repository/$id'
+      preLoaderRoute: typeof RepositoryIdRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/demo/clerk': {
@@ -88,6 +110,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DemoClerkRoute: DemoClerkRoute,
+  RepositoryIdRoute: RepositoryIdRoute,
   DemoSentryTestingRoute: DemoSentryTestingRoute,
 }
 export const routeTree = rootRouteImport

@@ -38,6 +38,7 @@ def extract_code_items(lang, src_code, file_meta):
     parser = get_parser_for_language(lang)
     tree = parser.parse(src_code.encode("utf-8"))
     root = tree.root_node
+    repo_name = os.getenv("REPO_NAME")
 
     extractor = get_language_extractor(lang)
     if not extractor:
@@ -51,6 +52,7 @@ def extract_code_items(lang, src_code, file_meta):
             name = name_node.text.decode()
 
             item = {
+                "repo_name": repo_name,
                 "name": name,
                 "signature": get_snippet(src_lines, node.start_point, node.end_point),
                 "code_type": item_type,
@@ -69,6 +71,7 @@ def extract_code_items(lang, src_code, file_meta):
             name = name_node.text.decode()
 
             item = {
+                "repo_name": repo_name,
                 "name": name,
                 "signature": get_snippet(src_lines, node.start_point, node.end_point),
                 "code_type": item_type,

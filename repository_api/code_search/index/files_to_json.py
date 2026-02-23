@@ -11,7 +11,10 @@ def process_file(root_dir, file_path):
     with open(file_path, "r", encoding="utf-8", errors="ignore") as file:
         code_lines = file.readlines()
         relative_path = os.path.relpath(file_path, root_dir)
+        repo_name = os.getenv("REPO_NAME")
+
         return {
+            "repo_name": repo_name,
             "path": relative_path,
             "code": code_lines,
             "startline": 1,

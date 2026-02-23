@@ -1,38 +1,60 @@
 import os
 import shutil
 import subprocess
+from typing import List
 
-from code_search.get_file import FileGet
-from code_search.searcher import CombinedSearcher
 from fastapi import BackgroundTasks, FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
+from code_search.repo_searcher import RepoSearcher
+from code_search.searcher import CombinedSearcher
+
 app = FastAPI()
+origins = [
+    "http://localhost:3000",  # Common React port
+]
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,  # List of allowed origins
+    allow_credentials=True,  # Allow cookies and auth headers
+    allow_methods=["*"],  # Allow all HTTP methods (GET, POST, etc.)
+    allow_headers=["*"],  # Allow all headers
+)
 
 searcher = CombinedSearcher()
-get_file = FileGet()
-
-# Configuration
-TMP_REPO_DIR = "/tmp/mean-flashcards"
-REPO_URL = "https://github.com/nevernorbo/mean-flashcards.git"
+repo_searcher = RepoSearcher()
 
 
-class RepoRequest(BaseModel):
-    repo_url: str = REPO_URL
+@app.get("/api/repositories", response_model=List[str])
+async def get_repositories():
+    """
+    Returns a distinct list of all indexed repository names
+    across both Code and NLU collections.
+    """
+    try:
+        # In a real production app, you might want to clear this cache
+        # when a new repo finishes indexing.
+        repos = list(repo_searcher.get_unique_repositories())
+        return repos
+    except Exception as e:
+        # Log the error for debugging (standard for software engineers)
+        print(f"Error fetching from Qdrant: {e}")
+        return []
 
 
-def run_indexing_pipeline(repo_path: str):
+def run_indexing_pipeline(repo_path: str, repo_name):
     """
     Equivalent to index_qdrant.sh.
     Executes the Python indexing modules in the correct sequence.
     """
     env = os.environ.copy()
     env["REPO_PATH"] = repo_path
+    env["REPO_NAME"] = repo_name
 
     # List of modules to run in order
     modules = [
         "code_search.index.files_to_json",
-        "code_search.index.file_uploader",
         "code_search.index.parser_for_code",
         "code_search.index.upload_code",
         "code_search.index.parser_for_nl",
@@ -53,35 +75,38 @@ def run_indexing_pipeline(repo_path: str):
             shutil.rmtree(repo_path)
 
 
+class IndexRequest(BaseModel):
+    repo_name: str
+
+
 @app.post("/api/index")
-async def index_repository(background_tasks: BackgroundTasks, request: RepoRequest):
+async def index_repository(background_tasks: BackgroundTasks, request: IndexRequest):
     """
     Equivalent to download_and_index.sh logic.
     Clones the repo and triggers background indexing.
     """
+    TMP_REPO_DIR = "/tmp/" + request.repo_name
+
     if os.path.exists(TMP_REPO_DIR):
         shutil.rmtree(TMP_REPO_DIR)
 
+    repo_url = f"https://github.com/{request.repo_name}"
+
     try:
         # Clone the repository
-        subprocess.run(["git", "clone", request.repo_url, TMP_REPO_DIR], check=True)
+        subprocess.run(["git", "clone", repo_url, TMP_REPO_DIR], check=True)
     except subprocess.CalledProcessError:
         raise HTTPException(status_code=500, detail="Failed to clone repository")
 
     # Run the heavy indexing work in the background to avoid blocking the API
-    background_tasks.add_task(run_indexing_pipeline, TMP_REPO_DIR)
+    background_tasks.add_task(run_indexing_pipeline, TMP_REPO_DIR, request.repo_name)
 
-    return {"message": f"Indexing started for {request.repo_url}"}
+    return {"message": f"Indexing started for {request.repo_name}"}
 
 
 @app.get("/api/search")
 async def search(query: str):
     return {"result": searcher.search(query, limit=5)}
-
-
-@app.get("/api/file")
-async def file(path: str):
-    return {"result": get_file.get(path)}
 
 
 if __name__ == "__main__":

@@ -1,12 +1,13 @@
 import { Bot } from "lucide-react";
 import { SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "../ui/sidebar";
+import { Link } from "@tanstack/react-router";
 
 export function AppSidebarTitle() {
     return (
         <SidebarMenu>
             <SidebarMenuItem>
                 <SidebarMenuButton size="lg" asChild>
-                    <a href="#">
+                    <Link to="/">
                         <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
                             <Bot className="size-4" />
                         </div>
@@ -15,7 +16,7 @@ export function AppSidebarTitle() {
                                 Codebase agent
                             </span>
                         </div>
-                    </a>
+                    </Link>
                 </SidebarMenuButton>
             </SidebarMenuItem>
         </SidebarMenu>

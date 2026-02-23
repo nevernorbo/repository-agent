@@ -3,6 +3,9 @@ import { HeadContent, Scripts, createRootRoute } from "@tanstack/react-router";
 import ClerkProvider from "../integrations/clerk/provider";
 
 import appCss from "../styles.css?url";
+import { AppMain } from "@/components/main/app-main";
+import { AppSidebar } from "@/components/sidebar/app-sidebar";
+import { SidebarProvider } from "@/components/ui/sidebar";
 
 export const Route = createRootRoute({
     head: () => ({
@@ -36,19 +39,10 @@ function RootDocument({ children }: { children: React.ReactNode }) {
             </head>
             <body>
                 <ClerkProvider>
-                    {/*<Header />*/}
-                    {children}
-                    {/*<TanStackDevtools
-                        config={{
-                            position: "bottom-right",
-                        }}
-                        plugins={[
-                            {
-                                name: "Tanstack Router",
-                                render: <TanStackRouterDevtoolsPanel />,
-                            },
-                        ]}
-                    />*/}
+                    <SidebarProvider>
+                        <AppSidebar />
+                        <AppMain>{children}</AppMain>
+                    </SidebarProvider>
                 </ClerkProvider>
                 <Scripts />
             </body>
