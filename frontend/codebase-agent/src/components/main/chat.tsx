@@ -12,8 +12,14 @@ import {
 } from "@/components/ui/message";
 import { useState } from "react";
 
+interface Message {
+    id: number;
+    role: "assistant" | "user";
+    content: string;
+}
+
 export function Chat() {
-    const [messages, setMessages] = useState([
+    const [messages, setMessages] = useState<Message[]>([
         {
             id: 1,
             role: "user",
@@ -72,7 +78,7 @@ export function Chat() {
     ]);
 
     return (
-        <div className="flex w-full flex-col overflow-hidden">
+        <div className="flex-1 flex w-full flex-col min-h-0">
             <ChatContainerRoot className="flex-1">
                 <ChatContainerContent className="space-y-4 p-4 mx-auto max-w-(--breakpoint-md)">
                     {messages.map((message) => {

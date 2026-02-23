@@ -33,7 +33,7 @@ export function AppPromptInput() {
             onValueChange={handleValueChange}
             isLoading={isLoading}
             onSubmit={handleSubmit}
-            className="w-full max-w-(--breakpoint-md) mx-auto"
+            className="w-full max-w-(--breakpoint-md) mx-auto mb-2"
         >
             <PromptInputTextarea placeholder="Ask me anything..." />
             <PromptInputActions className="justify-end pt-2">

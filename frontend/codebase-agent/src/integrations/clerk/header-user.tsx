@@ -1,9 +1,11 @@
+import { Button } from "@/components/ui/button";
 import {
     SignedIn,
     SignInButton,
     SignedOut,
     UserButton,
 } from "@clerk/clerk-react";
+import { LogIn } from "lucide-react";
 
 export default function HeaderUser() {
     return (
@@ -12,7 +14,12 @@ export default function HeaderUser() {
                 <UserButton />
             </SignedIn>
             <SignedOut>
-                <SignInButton />
+                <SignInButton>
+                    <Button>
+                        <LogIn />
+                        Sign in
+                    </Button>
+                </SignInButton>
             </SignedOut>
         </>
     );
