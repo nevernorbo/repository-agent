@@ -8,8 +8,6 @@ interface Props {
 }
 
 export function Repositories({ refreshSidebar }: Props) {
-    useEffect(() => {}, [refreshSidebar]);
-
     const [repos, setRepos] = useState<string[]>([]);
     const [loading, setLoading] = useState(true);
 
@@ -34,7 +32,7 @@ export function Repositories({ refreshSidebar }: Props) {
         }
 
         getRepos();
-    }, []);
+    }, [refreshSidebar]);
 
     if (loading) {
         return (

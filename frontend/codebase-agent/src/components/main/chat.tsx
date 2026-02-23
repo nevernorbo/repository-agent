@@ -18,9 +18,14 @@ interface Message {
     content: string;
 }
 
-export function Chat() {
-    const [messages, setMessages] = useState<Message[]>([]);
+interface Props {
+    author: string;
+    repoName: string;
+}
 
+export function Chat({ author, repoName }: Props) {
+    const [messages, setMessages] = useState<Message[]>([]);
+    console.log(author);
     return (
         <div className="flex-1 flex w-full flex-col min-h-0">
             <ChatContainerRoot className="flex-1">

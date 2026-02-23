@@ -14,6 +14,7 @@ import { useState } from "react";
 import { AppSidebarTitle } from "./app-sidebar-title";
 import { IndexRepository } from "./index-repository";
 import { Repositories } from "./repositories";
+import HeaderUser from "@/integrations/clerk/header-user";
 
 export function AppSidebar() {
     const { open } = useSidebar();
@@ -49,6 +50,7 @@ export function AppSidebar() {
                 )}
             </SidebarContent>
             <SidebarFooter>
+                <HeaderUser />
                 <SidebarTrigger />
             </SidebarFooter>
             <SidebarRail />
