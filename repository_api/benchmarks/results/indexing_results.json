@@ -1,0 +1,26 @@
+[
+  {
+    "repo_name": "nevernorbo/mean-flashcards",
+    "size_category": "small",
+    "total_indexing_time_s": 26.07,
+    "status": "completed",
+    "file_count": 0,
+    "loc": 0
+  },
+  {
+    "repo_name": "fastapi/fastapi",
+    "size_category": "large",
+    "total_indexing_time_s": 89.13,
+    "status": "completed",
+    "file_count": 0,
+    "loc": 0
+  },
+  {
+    "repo_name": "expressjs/express",
+    "size_category": "medium",
+    "total_indexing_time_s": 20.23,
+    "status": "completed",
+    "file_count": 0,
+    "loc": 0
+  }
+]

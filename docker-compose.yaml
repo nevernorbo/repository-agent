@@ -7,6 +7,16 @@ services:
             - QDRANT_API_KEY
         ports:
             - 8000:8000
+        command: uvicorn code_search.service:app --host 0.0.0.0 --reload
+        develop:
+            watch:
+                - action: sync
+                  path: ./repository_api
+                  target: /code
+                  ignore:
+                      - __pycache__/
+                - action: rebuild
+                  path: ./repository_api/requirements.txt
     agent:
         build: ./agent
         container_name: agent_api

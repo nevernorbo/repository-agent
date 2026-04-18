@@ -1,0 +1,122 @@
+[
+  {
+    "repo_name": "nevernorbo/mean-flashcards",
+    "levels": [
+      {
+        "concurrency": 1,
+        "mean_latency_ms": 170.76,
+        "throughput_qps": 4.55,
+        "error_count": 0,
+        "wall_time_s": 0.22
+      },
+      {
+        "concurrency": 2,
+        "mean_latency_ms": 270.88,
+        "throughput_qps": 4.88,
+        "error_count": 0,
+        "wall_time_s": 0.41
+      },
+      {
+        "concurrency": 5,
+        "mean_latency_ms": 496.56,
+        "throughput_qps": 5.29,
+        "error_count": 0,
+        "wall_time_s": 0.944
+      },
+      {
+        "concurrency": 10,
+        "mean_latency_ms": 1034.08,
+        "throughput_qps": 5.4,
+        "error_count": 0,
+        "wall_time_s": 1.851
+      },
+      {
+        "concurrency": 20,
+        "mean_latency_ms": 1959.52,
+        "throughput_qps": 5.26,
+        "error_count": 0,
+        "wall_time_s": 3.799
+      }
+    ]
+  },
+  {
+    "repo_name": "fastapi/fastapi",
+    "levels": [
+      {
+        "concurrency": 1,
+        "mean_latency_ms": 381.32,
+        "throughput_qps": 2.24,
+        "error_count": 0,
+        "wall_time_s": 0.446
+      },
+      {
+        "concurrency": 2,
+        "mean_latency_ms": 600.79,
+        "throughput_qps": 3.17,
+        "error_count": 0,
+        "wall_time_s": 0.631
+      },
+      {
+        "concurrency": 5,
+        "mean_latency_ms": 881.2,
+        "throughput_qps": 4.19,
+        "error_count": 0,
+        "wall_time_s": 1.192
+      },
+      {
+        "concurrency": 10,
+        "mean_latency_ms": 1543.35,
+        "throughput_qps": 4.33,
+        "error_count": 0,
+        "wall_time_s": 2.31
+      },
+      {
+        "concurrency": 20,
+        "mean_latency_ms": 2997.53,
+        "throughput_qps": 4.43,
+        "error_count": 0,
+        "wall_time_s": 4.515
+      }
+    ]
+  },
+  {
+    "repo_name": "expressjs/express",
+    "levels": [
+      {
+        "concurrency": 1,
+        "mean_latency_ms": 138.97,
+        "throughput_qps": 6.57,
+        "error_count": 0,
+        "wall_time_s": 0.152
+      },
+      {
+        "concurrency": 2,
+        "mean_latency_ms": 282.37,
+        "throughput_qps": 4.93,
+        "error_count": 0,
+        "wall_time_s": 0.406
+      },
+      {
+        "concurrency": 5,
+        "mean_latency_ms": 473.74,
+        "throughput_qps": 5.76,
+        "error_count": 0,
+        "wall_time_s": 0.868
+      },
+      {
+        "concurrency": 10,
+        "mean_latency_ms": 1000.26,
+        "throughput_qps": 5.35,
+        "error_count": 0,
+        "wall_time_s": 1.869
+      },
+      {
+        "concurrency": 20,
+        "mean_latency_ms": 1789.19,
+        "throughput_qps": 5.78,
+        "error_count": 0,
+        "wall_time_s": 3.459
+      }
+    ]
+  }
+]

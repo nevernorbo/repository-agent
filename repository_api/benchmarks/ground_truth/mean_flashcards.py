@@ -1,0 +1,61 @@
+"""
+Ground truth for mean-flashcards — populated after indexing.
+Maps query IDs to sets of relevant file paths that should appear in results.
+These will be refined once the repository is indexed and the code entities inspected.
+"""
+
+# query_id -> set of relevant file path substrings
+GROUND_TRUTH = {
+    # NL queries
+    "mf_nl_01": {"models", "flashcard", "routes"},
+    "mf_nl_02": {"auth", "middleware"},
+    "mf_nl_03": {"app.js", "error"},
+    "mf_nl_04": {"collection", "routes"},
+    "mf_nl_05": {"models", "flashcard"},
+    "mf_nl_06": {"service", "api"},
+    "mf_nl_07": {"auth", "register"},
+    "mf_nl_08": {"app.js", "routes"},
+    "mf_nl_09": {"app.js", "config", "env"},
+    "mf_nl_10": {"app.component"},
+    "mf_nl_11": {"auth", "middleware", "jwt"},
+    "mf_nl_12": {"collection", "model"},
+    "mf_nl_13": {"app.js", "mongoose", "connect"},
+    "mf_nl_14": {"component", "form"},
+    "mf_nl_15": {"app.js", "cors"},
+    "mf_nl_16": {"docker-compose", "Dockerfile"},
+    "mf_nl_17": {"routes", "app.routes"},
+    "mf_nl_18": {"flashcard", "routes", "delete"},
+    "mf_nl_19": {"auth", "bcrypt", "hash"},
+    "mf_nl_20": {"component", "flashcard", "list"},
+    "mf_nl_21": {"models", "user"},
+    "mf_nl_22": {"app.js", "server", "listen"},
+    "mf_nl_23": {"interceptor"},
+    "mf_nl_24": {"flashcard", "routes", "update"},
+    "mf_nl_25": {"navbar", "component"},
+    # Code queries
+    "mf_code_01": {"flashcard", "routes"},
+    "mf_code_02": {"models", "Schema"},
+    "mf_code_03": {"routes", "module.exports"},
+    "mf_code_04": {"auth", "jwt"},
+    "mf_code_05": {"middleware", "auth"},
+    "mf_code_06": {"component"},
+    "mf_code_07": {"service", "Injectable"},
+    "mf_code_08": {"service", "http"},
+    "mf_code_09": {"service", "http"},
+    "mf_code_10": {"auth", "bcrypt"},
+    "mf_code_11": {"app.js", "mongoose"},
+    "mf_code_12": {"app.js", "cors"},
+    "mf_code_13": {"app.component"},
+    "mf_code_14": {"routes", "Router"},
+    "mf_code_15": {"auth", "401"},
+    "mf_code_16": {"flashcard", "findById"},
+    "mf_code_17": {"flashcard", "findByIdAndUpdate"},
+    "mf_code_18": {"flashcard", "findByIdAndDelete"},
+    "mf_code_19": {"component", "FormGroup"},
+    "mf_code_20": {"component", "subscribe"},
+    "mf_code_21": {"app.js", "express.json"},
+    "mf_code_22": {"component", "ngOnInit"},
+    "mf_code_23": {"guard", "canActivate"},
+    "mf_code_24": {"auth", "bcrypt"},
+    "mf_code_25": {"app.js", "listen"},
+}

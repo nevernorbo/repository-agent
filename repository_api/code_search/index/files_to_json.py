@@ -39,6 +39,7 @@ def main():
 
     files_data = explore_directory(folder_path)
 
+    output_file.parent.mkdir(parents=True, exist_ok=True)
     with open(output_file, "w", encoding="utf-8") as json_file:
         json.dump(files_data, json_file, indent=2)
 
