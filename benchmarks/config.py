@@ -6,10 +6,8 @@ from typing import Final
 
 # ── Models to benchmark ──────────────────────────────────────────────────────
 BENCHMARK_MODELS: Final[list[str]] = [
+    "gemini-2.5-flash",
     "gemma-4-31b-it",
-    "gemini-3-flash-preview",
-    "gemini-3.1-flash-lite-preview",
-    "ollama/qwen3.5:4b",
     "ollama/qwen3:0.6b",
 ]
 
