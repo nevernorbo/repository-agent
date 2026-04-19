@@ -65,7 +65,7 @@ CONCURRENCY_LEVELS = [1, 2, 5, 10, 20]
 INDEX_TYPES = ["dense", "sparse", "hybrid"]
 
 # How long to wait for indexing to finish (seconds)
-INDEX_TIMEOUT_S = 600
+INDEX_TIMEOUT_S = 1200
 
 # Number of search results to request per query
 SEARCH_LIMIT = 10

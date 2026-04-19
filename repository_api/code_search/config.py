@@ -14,5 +14,8 @@ QDRANT_API_KEY = os.environ.get("QDRANT_API_KEY")
 QDRANT_CODE_COLLECTION_NAME = "code-snippets-unixcoder"
 QDRANT_NLU_COLLECTION_NAME = "code-signatures"
 
+QDRANT_CODE_COLLECTION_NAME_HYBRID = "code-snippets-unixcoder-hybrid"
+QDRANT_NLU_COLLECTION_NAME_HYBRID = "code-signatures-hybrid"
+
 ENCODER_NAME = "all-MiniLM-L6-v2"
 ENCODER_SIZE = 384

@@ -36,18 +36,18 @@ class BenchmarkAPIClient:
             resp.raise_for_status()
             return resp.json()
 
-    async def get_index_status(self, repo_name: str) -> str:
+    async def get_index_status(self, repo_name: str) -> Dict[str, Any]:
         """Poll GET /api/index/status/{repo_name}.
 
         Returns:
-            Status string: "not_started", "cloned", "indexing", "completed", or "failed: ...".
+            Dict containing status and times.
         """
         async with httpx.AsyncClient(timeout=self.timeout) as client:
             resp = await client.get(
                 f"{self.base_url}/api/index/status/{repo_name}",
             )
             resp.raise_for_status()
-            return resp.json().get("status", "unknown")
+            return resp.json()
 
     async def wait_for_indexing(
         self,
@@ -58,28 +58,21 @@ class BenchmarkAPIClient:
         """Block until indexing finishes (or times out).
 
         Returns:
-            Dict with ``status``, ``elapsed_s``, and ``repo_name``.
+            Dict with ``status``, ``elapsed_s``, ``times``, and ``repo_name``.
 
         Raises:
             TimeoutError: If indexing does not finish within *timeout_s*.
         """
         start = time.monotonic()
         while True:
-            status = await self.get_index_status(repo_name)
+            status_data = await self.get_index_status(repo_name)
+            status = status_data.get("status", "unknown")
             elapsed = time.monotonic() - start
 
-            if status == "completed":
-                return {
-                    "repo_name": repo_name,
-                    "status": "completed",
-                    "elapsed_s": round(elapsed, 2),
-                }
-            if status.startswith("failed"):
-                return {
-                    "repo_name": repo_name,
-                    "status": status,
-                    "elapsed_s": round(elapsed, 2),
-                }
+            if status == "completed" or status.startswith("failed"):
+                status_data["elapsed_s"] = round(elapsed, 2)
+                return status_data
+
             if elapsed > timeout_s:
                 raise TimeoutError(
                     f"Indexing {repo_name} did not complete within {timeout_s}s "

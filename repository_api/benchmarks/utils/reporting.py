@@ -35,8 +35,8 @@ def _render_indexing(data: List[Dict]) -> str:
     """Render the indexing performance table."""
     lines = [
         "## 1. Indexing Performance\n",
-        "| Repository | Size Category | Files | LOC | Indexing Time (s) | Status |",
-        "|---|---|---|---|---|---|",
+        "| Repository | Size Category | Files | LOC | Regular Indexing (s) | Hybrid Indexing (s) | Total Wall Clock (s) | Status |",
+        "|---|---|---|---|---|---|---|---|",
     ]
     for entry in data:
         lines.append(
@@ -44,7 +44,9 @@ def _render_indexing(data: List[Dict]) -> str:
             f"| {entry.get('size_category', '—')} "
             f"| {entry.get('file_count', '—')} "
             f"| {entry.get('loc', '—')} "
-            f"| {_fmt(entry.get('total_indexing_time_s', 0))} "
+            f"| {_fmt(entry.get('regular_indexing_s', 0))} "
+            f"| {_fmt(entry.get('hybrid_indexing_s', 0))} "
+            f"| {_fmt(entry.get('total_wall_clock_s', 0))} "
             f"| {entry.get('status', '—')} |"
         )
     return "\n".join(lines) + "\n"

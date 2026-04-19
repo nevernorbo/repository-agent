@@ -54,20 +54,34 @@ async def run_indexing_benchmark(
             outcome = await client.wait_for_indexing(repo_name)
             elapsed = time.monotonic() - start
             status = outcome["status"]
+            
+            times = outcome.get("times", {})
+            regular_time = sum(v for k, v in times.items() if not k.endswith('_hybrid'))
+            hybrid_time = sum(v for k, v in times.items() if k.endswith('_hybrid'))
+            
+            stats = outcome.get("stats", {})
+            file_count = stats.get("file_count", 0)
+            loc = stats.get("loc", 0)
+            
         except Exception as e:
             elapsed = time.monotonic() - start
             status = f"error: {e}"
+            regular_time = 0
+            hybrid_time = 0
+            file_count = 0
+            loc = 0
 
         result = {
             "repo_name": repo_name,
             "size_category": repo.get("size_category", "unknown"),
-            "total_indexing_time_s": round(elapsed, 2),
+            "total_wall_clock_s": round(elapsed, 2),
+            "regular_indexing_s": round(regular_time, 2),
+            "hybrid_indexing_s": round(hybrid_time, 2),
             "status": status,
-            # file_count / loc will be 0 unless we clone locally too
-            "file_count": 0,
-            "loc": 0,
+            "file_count": file_count,
+            "loc": loc,
         }
-        print(f"  Status: {status} | Time: {elapsed:.1f}s")
+        print(f"  Status: {status} | Regular: {regular_time:.1f}s | Hybrid: {hybrid_time:.1f}s | Files: {file_count} | LOC: {loc} | Total Wall: {elapsed:.1f}s")
         results.append(result)
 
     # Persist

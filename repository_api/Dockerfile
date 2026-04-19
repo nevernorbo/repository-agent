@@ -1,6 +1,11 @@
-FROM python:3.10-slim
+FROM nvidia/cuda:12.4.1-cudnn-runtime-ubuntu22.04
+
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get install -y \
+    python3.10 \
+    python3-pip \
+    python-is-python3 \
     git \
     gcc \
     && rm -rf /var/lib/apt/lists/*

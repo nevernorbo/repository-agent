@@ -4,38 +4,38 @@
     "levels": [
       {
         "concurrency": 1,
-        "mean_latency_ms": 170.76,
-        "throughput_qps": 4.55,
+        "mean_latency_ms": 115.01,
+        "throughput_qps": 7.61,
         "error_count": 0,
-        "wall_time_s": 0.22
+        "wall_time_s": 0.131
       },
       {
         "concurrency": 2,
-        "mean_latency_ms": 270.88,
-        "throughput_qps": 4.88,
+        "mean_latency_ms": 186.26,
+        "throughput_qps": 7.48,
         "error_count": 0,
-        "wall_time_s": 0.41
+        "wall_time_s": 0.267
       },
       {
         "concurrency": 5,
-        "mean_latency_ms": 496.56,
-        "throughput_qps": 5.29,
+        "mean_latency_ms": 340.48,
+        "throughput_qps": 8.98,
         "error_count": 0,
-        "wall_time_s": 0.944
+        "wall_time_s": 0.557
       },
       {
         "concurrency": 10,
-        "mean_latency_ms": 1034.08,
-        "throughput_qps": 5.4,
+        "mean_latency_ms": 415.23,
+        "throughput_qps": 15.7,
         "error_count": 0,
-        "wall_time_s": 1.851
+        "wall_time_s": 0.637
       },
       {
         "concurrency": 20,
-        "mean_latency_ms": 1959.52,
-        "throughput_qps": 5.26,
+        "mean_latency_ms": 594.23,
+        "throughput_qps": 20.27,
         "error_count": 0,
-        "wall_time_s": 3.799
+        "wall_time_s": 0.987
       }
     ]
   },
@@ -44,38 +44,38 @@
     "levels": [
       {
         "concurrency": 1,
-        "mean_latency_ms": 381.32,
-        "throughput_qps": 2.24,
+        "mean_latency_ms": 297.31,
+        "throughput_qps": 3.03,
         "error_count": 0,
-        "wall_time_s": 0.446
+        "wall_time_s": 0.33
       },
       {
         "concurrency": 2,
-        "mean_latency_ms": 600.79,
-        "throughput_qps": 3.17,
+        "mean_latency_ms": 244.69,
+        "throughput_qps": 6.09,
         "error_count": 0,
-        "wall_time_s": 0.631
+        "wall_time_s": 0.328
       },
       {
         "concurrency": 5,
-        "mean_latency_ms": 881.2,
-        "throughput_qps": 4.19,
+        "mean_latency_ms": 235.98,
+        "throughput_qps": 13.67,
         "error_count": 0,
-        "wall_time_s": 1.192
+        "wall_time_s": 0.366
       },
       {
         "concurrency": 10,
-        "mean_latency_ms": 1543.35,
-        "throughput_qps": 4.33,
+        "mean_latency_ms": 319.15,
+        "throughput_qps": 21.69,
         "error_count": 0,
-        "wall_time_s": 2.31
+        "wall_time_s": 0.461
       },
       {
         "concurrency": 20,
-        "mean_latency_ms": 2997.53,
-        "throughput_qps": 4.43,
+        "mean_latency_ms": 587.04,
+        "throughput_qps": 19.19,
         "error_count": 0,
-        "wall_time_s": 4.515
+        "wall_time_s": 1.042
       }
     ]
   },
@@ -84,38 +84,38 @@
     "levels": [
       {
         "concurrency": 1,
-        "mean_latency_ms": 138.97,
-        "throughput_qps": 6.57,
+        "mean_latency_ms": 136.15,
+        "throughput_qps": 6.61,
         "error_count": 0,
-        "wall_time_s": 0.152
+        "wall_time_s": 0.151
       },
       {
         "concurrency": 2,
-        "mean_latency_ms": 282.37,
-        "throughput_qps": 4.93,
+        "mean_latency_ms": 129.67,
+        "throughput_qps": 11.87,
         "error_count": 0,
-        "wall_time_s": 0.406
+        "wall_time_s": 0.168
       },
       {
         "concurrency": 5,
-        "mean_latency_ms": 473.74,
-        "throughput_qps": 5.76,
+        "mean_latency_ms": 221.77,
+        "throughput_qps": 15.93,
         "error_count": 0,
-        "wall_time_s": 0.868
+        "wall_time_s": 0.314
       },
       {
         "concurrency": 10,
-        "mean_latency_ms": 1000.26,
-        "throughput_qps": 5.35,
+        "mean_latency_ms": 336.28,
+        "throughput_qps": 20.41,
         "error_count": 0,
-        "wall_time_s": 1.869
+        "wall_time_s": 0.49
       },
       {
         "concurrency": 20,
-        "mean_latency_ms": 1789.19,
-        "throughput_qps": 5.78,
+        "mean_latency_ms": 544.9,
+        "throughput_qps": 22.84,
         "error_count": 0,
-        "wall_time_s": 3.459
+        "wall_time_s": 0.876
       }
     ]
   }

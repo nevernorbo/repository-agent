@@ -17,6 +17,13 @@ services:
                       - __pycache__/
                 - action: rebuild
                   path: ./repository_api/requirements.txt
+        deploy:
+            resources:
+                reservations:
+                    devices:
+                        - driver: nvidia
+                          count: 1
+                          capabilities: [gpu]
     agent:
         build: ./agent
         container_name: agent_api
