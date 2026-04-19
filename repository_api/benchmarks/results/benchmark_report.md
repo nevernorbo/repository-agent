@@ -75,11 +75,8 @@ _Generated on 2026-04-19 08:23 UTC_
 | Repository | Index Type | P@5 | R@5 | MRR | Mean Latency (ms) |
 |---|---|---|---|---|---|
 | `nevernorbo/mean-flashcards` | dense | 0.35 | 0.90 | 0.47 | 57.50 |
-| `nevernorbo/mean-flashcards` | sparse | 0.00 | 0.00 | 0.00 | 0.00 |
 | `nevernorbo/mean-flashcards` | hybrid | 0.17 | 0.45 | 0.24 | 28.75 |
 | `fastapi/fastapi` | dense | 0.22 | 0.84 | 0.41 | 73.96 |
-| `fastapi/fastapi` | sparse | 0.00 | 0.00 | 0.00 | 0.00 |
 | `fastapi/fastapi` | hybrid | 0.11 | 0.42 | 0.21 | 36.98 |
 | `expressjs/express` | dense | 0.04 | 0.22 | 0.09 | 56.55 |
-| `expressjs/express` | sparse | 0.00 | 0.00 | 0.00 | 0.00 |
 | `expressjs/express` | hybrid | 0.02 | 0.11 | 0.04 | 28.27 |

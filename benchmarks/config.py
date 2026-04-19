@@ -9,6 +9,8 @@ BENCHMARK_MODELS: Final[list[str]] = [
     "gemma-4-31b-it",
     "gemini-3-flash-preview",
     "gemini-3.1-flash-lite-preview",
+    "ollama/qwen3.5:4b",
+    "ollama/qwen3:0.6b",
 ]
 
 # ── Routing categories ────────────────────────────────────────────────────────

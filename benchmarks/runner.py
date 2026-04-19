@@ -17,6 +17,7 @@ import re
 import time
 from dataclasses import dataclass, field
 
+from google.adk.models.lite_llm import LiteLlm
 from google.adk.runners import InMemoryRunner
 from google.adk.sessions import Session
 from google.genai import types as genai_types
@@ -44,6 +45,13 @@ class RunResult:
     raw_events: list[str] = field(default_factory=list)
     error: str | None = None
     latency_seconds: float = 0.0
+
+
+def get_model_name(model: LiteLlm | str) -> str:
+    """Extract string name from model identifier."""
+    if isinstance(model, LiteLlm):
+        return model.model
+    return model
 
 
 # ── Routing detection ─────────────────────────────────────────────────────────
@@ -129,6 +137,10 @@ async def run_single(
             detected = _detect_routed_agent(event)
             if detected:
                 routed_agent = detected
+                # Stop immediately! We only care about the routing decision.
+                # Continuing the stream would cause the target sub-agent to run 
+                # its own expensive LLM generation.
+                break
 
         # Pull classifier reasoning from session state
         updated_session = await runner.session_service.get_session(
@@ -161,7 +173,7 @@ async def run_single(
 
 
 async def run_model_benchmark(
-    model: str,
+    model: LiteLlm | str,
     prompts: list[BenchmarkPrompt],
     delay: float = REQUEST_DELAY_SECONDS,
     progress_callback=None,
@@ -176,13 +188,14 @@ async def run_model_benchmark(
     # permanently — we swap the model attribute, run, and restore it.
     from agent.sub_agents.classifier.agent import classifier_agent  # noqa: PLC0415
 
+    model_name = get_model_name(model)
     original_model = classifier_agent.model
     classifier_agent.model = model
 
     try:
         runner = InMemoryRunner(
             agent=classifier_agent,
-            app_name=f"benchmark_{model.replace('.', '_').replace('-', '_')}",
+            app_name=f"benchmark_{model_name.replace('.', '_').replace('-', '_').replace(':', '_')}",
         )
 
         results: list[RunResult] = []
@@ -202,7 +215,7 @@ async def run_model_benchmark(
             results.append(result)
 
             if progress_callback:
-                progress_callback(model=model, idx=idx + 1, total=len(prompts), result=result)
+                progress_callback(model=model_name, idx=idx + 1, total=len(prompts), result=result)
 
             if idx < len(prompts) - 1:
                 await asyncio.sleep(delay)
