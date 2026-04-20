@@ -105,6 +105,22 @@ class BenchmarkAPIClient:
             body["_latency_ms"] = round(latency_ms, 2)
             return body
 
+    async def search_hybrid(
+        self, query: str, repo_name: str, limit: int = 5
+    ) -> Dict[str, Any]:
+        """Execute GET /api/search_hybrid and return the JSON body."""
+        async with httpx.AsyncClient(timeout=self.timeout) as client:
+            start = time.monotonic()
+            resp = await client.get(
+                f"{self.base_url}/api/search_hybrid",
+                params={"query": query, "repo_name": repo_name},
+            )
+            latency_ms = (time.monotonic() - start) * 1000
+            resp.raise_for_status()
+            body = resp.json()
+            body["_latency_ms"] = round(latency_ms, 2)
+            return body
+
     async def search_timed(
         self, query: str, repo_name: str
     ) -> Dict[str, Any]:

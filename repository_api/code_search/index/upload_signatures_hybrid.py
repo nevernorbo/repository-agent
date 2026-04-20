@@ -69,9 +69,7 @@ def upload():
                 )
             },
             sparse_vectors_config={
-                "sparse": models.SparseVectorParams(
-                    modifier=models.Modifier.IDF
-                )
+                "sparse": models.SparseVectorParams()
             },
             quantization_config=models.ScalarQuantization(
                 scalar=models.ScalarQuantizationConfig(

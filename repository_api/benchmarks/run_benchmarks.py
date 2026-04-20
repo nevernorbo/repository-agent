@@ -31,6 +31,7 @@ def parse_args() -> argparse.Namespace:
 
     # Benchmark selectors
     parser.add_argument("--all", action="store_true", help="Run all benchmarks")
+    parser.add_argument("--skip-indexing", action="store_true", help="Run all benchmarks except indexing")
     parser.add_argument("--indexing", action="store_true", help="Run indexing benchmark (1)")
     parser.add_argument("--search", action="store_true", help="Run search latency benchmark (2)")
     parser.add_argument("--concurrency", action="store_true", help="Run concurrency benchmark (3)")
@@ -80,11 +81,11 @@ async def run(args: argparse.Namespace):
 
     client = BenchmarkAPIClient()
 
-    run_all = args.all
+    run_all = args.all or args.skip_indexing
     quality_results = None
 
     # ── 1. Indexing ──────────────────────────────────────────────
-    if run_all or args.indexing:
+    if (args.all or args.indexing) and not args.skip_indexing:
         print("\n" + "=" * 70)
         print("  BENCHMARK 1: Indexing Performance")
         print("=" * 70)
@@ -145,7 +146,7 @@ def main():
 
     # Ensure at least one action is selected
     actions = [
-        args.all, args.indexing, args.search, args.concurrency,
+        args.all, args.skip_indexing, args.indexing, args.search, args.concurrency,
         args.quality, args.nl_vs_code, args.index_types, args.report_only,
     ]
     if not any(actions):

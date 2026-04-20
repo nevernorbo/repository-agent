@@ -2,9 +2,9 @@
   {
     "repo_name": "nevernorbo/mean-flashcards",
     "size_category": "small",
-    "total_wall_clock_s": 31.25,
-    "regular_indexing_s": 13.13,
-    "hybrid_indexing_s": 11.99,
+    "total_wall_clock_s": 26.14,
+    "regular_indexing_s": 11.12,
+    "hybrid_indexing_s": 10.93,
     "status": "completed",
     "file_count": 68,
     "loc": 3627
@@ -12,9 +12,9 @@
   {
     "repo_name": "fastapi/fastapi",
     "size_category": "large",
-    "total_wall_clock_s": 160.0,
-    "regular_indexing_s": 31.15,
-    "hybrid_indexing_s": 96.79,
+    "total_wall_clock_s": 147.74,
+    "regular_indexing_s": 29.22,
+    "hybrid_indexing_s": 92.23,
     "status": "completed",
     "file_count": 1123,
     "loc": 107994
@@ -22,9 +22,9 @@
   {
     "repo_name": "expressjs/express",
     "size_category": "medium",
-    "total_wall_clock_s": 25.71,
-    "regular_indexing_s": 9.36,
-    "hybrid_indexing_s": 9.49,
+    "total_wall_clock_s": 26.56,
+    "regular_indexing_s": 9.0,
+    "hybrid_indexing_s": 9.38,
     "status": "completed",
     "file_count": 141,
     "loc": 21346

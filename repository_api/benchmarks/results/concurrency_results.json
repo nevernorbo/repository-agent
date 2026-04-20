@@ -4,38 +4,38 @@
     "levels": [
       {
         "concurrency": 1,
-        "mean_latency_ms": 115.01,
-        "throughput_qps": 7.61,
+        "mean_latency_ms": 118.72,
+        "throughput_qps": 7.63,
         "error_count": 0,
         "wall_time_s": 0.131
       },
       {
         "concurrency": 2,
-        "mean_latency_ms": 186.26,
-        "throughput_qps": 7.48,
+        "mean_latency_ms": 210.62,
+        "throughput_qps": 6.5,
         "error_count": 0,
-        "wall_time_s": 0.267
+        "wall_time_s": 0.308
       },
       {
         "concurrency": 5,
-        "mean_latency_ms": 340.48,
-        "throughput_qps": 8.98,
+        "mean_latency_ms": 326.72,
+        "throughput_qps": 9.14,
         "error_count": 0,
-        "wall_time_s": 0.557
+        "wall_time_s": 0.547
       },
       {
         "concurrency": 10,
-        "mean_latency_ms": 415.23,
-        "throughput_qps": 15.7,
+        "mean_latency_ms": 374.77,
+        "throughput_qps": 16.02,
         "error_count": 0,
-        "wall_time_s": 0.637
+        "wall_time_s": 0.624
       },
       {
         "concurrency": 20,
-        "mean_latency_ms": 594.23,
-        "throughput_qps": 20.27,
+        "mean_latency_ms": 532.52,
+        "throughput_qps": 21.8,
         "error_count": 0,
-        "wall_time_s": 0.987
+        "wall_time_s": 0.918
       }
     ]
   },
@@ -44,38 +44,38 @@
     "levels": [
       {
         "concurrency": 1,
-        "mean_latency_ms": 297.31,
-        "throughput_qps": 3.03,
+        "mean_latency_ms": 321.92,
+        "throughput_qps": 2.95,
         "error_count": 0,
-        "wall_time_s": 0.33
+        "wall_time_s": 0.338
       },
       {
         "concurrency": 2,
-        "mean_latency_ms": 244.69,
-        "throughput_qps": 6.09,
+        "mean_latency_ms": 174.36,
+        "throughput_qps": 8.54,
         "error_count": 0,
-        "wall_time_s": 0.328
+        "wall_time_s": 0.234
       },
       {
         "concurrency": 5,
-        "mean_latency_ms": 235.98,
-        "throughput_qps": 13.67,
+        "mean_latency_ms": 225.46,
+        "throughput_qps": 16.6,
         "error_count": 0,
-        "wall_time_s": 0.366
+        "wall_time_s": 0.301
       },
       {
         "concurrency": 10,
-        "mean_latency_ms": 319.15,
-        "throughput_qps": 21.69,
+        "mean_latency_ms": 377.29,
+        "throughput_qps": 18.23,
         "error_count": 0,
-        "wall_time_s": 0.461
+        "wall_time_s": 0.549
       },
       {
         "concurrency": 20,
-        "mean_latency_ms": 587.04,
-        "throughput_qps": 19.19,
+        "mean_latency_ms": 628.3,
+        "throughput_qps": 22.69,
         "error_count": 0,
-        "wall_time_s": 1.042
+        "wall_time_s": 0.882
       }
     ]
   },
@@ -84,38 +84,38 @@
     "levels": [
       {
         "concurrency": 1,
-        "mean_latency_ms": 136.15,
-        "throughput_qps": 6.61,
+        "mean_latency_ms": 167.65,
+        "throughput_qps": 5.56,
         "error_count": 0,
-        "wall_time_s": 0.151
+        "wall_time_s": 0.18
       },
       {
         "concurrency": 2,
-        "mean_latency_ms": 129.67,
-        "throughput_qps": 11.87,
+        "mean_latency_ms": 145.77,
+        "throughput_qps": 9.61,
         "error_count": 0,
-        "wall_time_s": 0.168
+        "wall_time_s": 0.208
       },
       {
         "concurrency": 5,
-        "mean_latency_ms": 221.77,
-        "throughput_qps": 15.93,
+        "mean_latency_ms": 216.64,
+        "throughput_qps": 16.04,
         "error_count": 0,
-        "wall_time_s": 0.314
+        "wall_time_s": 0.312
       },
       {
         "concurrency": 10,
-        "mean_latency_ms": 336.28,
-        "throughput_qps": 20.41,
+        "mean_latency_ms": 317.23,
+        "throughput_qps": 22.27,
         "error_count": 0,
-        "wall_time_s": 0.49
+        "wall_time_s": 0.449
       },
       {
         "concurrency": 20,
-        "mean_latency_ms": 544.9,
-        "throughput_qps": 22.84,
+        "mean_latency_ms": 615.01,
+        "throughput_qps": 23.16,
         "error_count": 0,
-        "wall_time_s": 0.876
+        "wall_time_s": 0.864
       }
     ]
   }

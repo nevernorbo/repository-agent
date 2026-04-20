@@ -10,11 +10,9 @@ from benchmarks.config import K_VALUES, REPOSITORIES, RESULTS_DIR
 from benchmarks.queries.mean_flashcards import ALL_QUERIES as MF_QUERIES
 from benchmarks.queries.fastapi_queries import ALL_QUERIES as FA_QUERIES
 from benchmarks.queries.express import ALL_QUERIES as EX_QUERIES
-from benchmarks.queries.openclaw import ALL_QUERIES as OC_QUERIES
 from benchmarks.ground_truth.mean_flashcards import GROUND_TRUTH as MF_GT
 from benchmarks.ground_truth.fastapi_gt import GROUND_TRUTH as FA_GT
 from benchmarks.ground_truth.express import GROUND_TRUTH as EX_GT
-from benchmarks.ground_truth.openclaw import GROUND_TRUTH as OC_GT
 from benchmarks.utils.api_client import BenchmarkAPIClient
 from benchmarks.utils.metrics import compute_all_metrics
 
@@ -22,14 +20,12 @@ REPO_QUERIES = {
     "nevernorbo/mean-flashcards": MF_QUERIES,
     "fastapi/fastapi": FA_QUERIES,
     "expressjs/express": EX_QUERIES,
-    "openclaw/openclaw": OC_QUERIES,
 }
 
 REPO_GT = {
     "nevernorbo/mean-flashcards": MF_GT,
     "fastapi/fastapi": FA_GT,
     "expressjs/express": EX_GT,
-    "openclaw/openclaw": OC_GT,
 }
 
 

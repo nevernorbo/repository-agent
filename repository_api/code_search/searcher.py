@@ -99,12 +99,21 @@ class HybridCodeSearcher:
         result = self.client.query_points(
             collection_name=self.collection_name,
             prefetch=[
-                models.Prefetch(query=dense_vector, using="dense", limit=limit*2),
-                models.Prefetch(query=sparse_vector, using="sparse", limit=limit*2),
+                models.Prefetch(
+                    query=dense_vector,
+                    using="dense",
+                    limit=100,
+                    filter=repo_filter,
+                ),
+                models.Prefetch(
+                    query=sparse_vector,
+                    using="sparse",
+                    limit=100,
+                    filter=repo_filter,
+                ),
             ],
             query=models.FusionQuery(fusion=models.Fusion.RRF),
             limit=limit,
-            query_filter=repo_filter,
             with_payload=["start_line", "end_line", "file"],
         )
 
@@ -129,12 +138,21 @@ class HybridNluSearcher:
         result = self.client.query_points(
             collection_name=self.collection_name,
             prefetch=[
-                models.Prefetch(query=dense_vector, using="dense", limit=limit*2),
-                models.Prefetch(query=sparse_vector, using="sparse", limit=limit*2),
+                models.Prefetch(
+                    query=dense_vector,
+                    using="dense",
+                    limit=100,
+                    filter=repo_filter,
+                ),
+                models.Prefetch(
+                    query=sparse_vector,
+                    using="sparse",
+                    limit=100,
+                    filter=repo_filter,
+                ),
             ],
             query=models.FusionQuery(fusion=models.Fusion.RRF),
             limit=limit,
-            query_filter=repo_filter,
             with_payload=True,
         )
 

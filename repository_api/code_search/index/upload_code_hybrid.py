@@ -93,9 +93,7 @@ def encode_and_upload():
                 )
             },
             sparse_vectors_config={
-                "sparse": rest.SparseVectorParams(
-                    modifier=rest.Modifier.IDF
-                )
+                "sparse": rest.SparseVectorParams()
             },
             quantization_config=rest.ScalarQuantization(
                 scalar=rest.ScalarQuantizationConfig(

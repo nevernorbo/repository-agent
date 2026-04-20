@@ -6,358 +6,358 @@
         "query_id": "mf_nl_01",
         "query": "How are flashcards created and stored in the database?",
         "query_type": "natural_language",
-        "latency_ms": 523.83,
+        "latency_ms": 403.73,
         "result_count": 5
       },
       {
         "query_id": "mf_nl_02",
         "query": "What authentication mechanism is used for user login?",
         "query_type": "natural_language",
-        "latency_ms": 118.37,
+        "latency_ms": 127.58,
         "result_count": 5
       },
       {
         "query_id": "mf_nl_03",
         "query": "How does the API handle error responses?",
         "query_type": "natural_language",
-        "latency_ms": 116.51,
+        "latency_ms": 132.86,
         "result_count": 5
       },
       {
         "query_id": "mf_nl_04",
         "query": "How are flashcard collections shared between users?",
         "query_type": "natural_language",
-        "latency_ms": 129.35,
+        "latency_ms": 159.13,
         "result_count": 5
       },
       {
         "query_id": "mf_nl_05",
         "query": "What is the database schema for a flashcard?",
         "query_type": "natural_language",
-        "latency_ms": 117.33,
+        "latency_ms": 204.67,
         "result_count": 5
       },
       {
         "query_id": "mf_nl_06",
         "query": "How does the Angular frontend communicate with the backend API?",
         "query_type": "natural_language",
-        "latency_ms": 131.21,
+        "latency_ms": 115.67,
         "result_count": 5
       },
       {
         "query_id": "mf_nl_07",
         "query": "How is user registration implemented?",
         "query_type": "natural_language",
-        "latency_ms": 112.9,
+        "latency_ms": 136.35,
         "result_count": 5
       },
       {
         "query_id": "mf_nl_08",
         "query": "What routing structure does the Express backend use?",
         "query_type": "natural_language",
-        "latency_ms": 115.32,
+        "latency_ms": 127.79,
         "result_count": 5
       },
       {
         "query_id": "mf_nl_09",
         "query": "How are environment variables loaded and managed?",
         "query_type": "natural_language",
-        "latency_ms": 113.74,
+        "latency_ms": 114.61,
         "result_count": 5
       },
       {
         "query_id": "mf_nl_10",
         "query": "What is the component structure of the Angular frontend?",
         "query_type": "natural_language",
-        "latency_ms": 126.07,
+        "latency_ms": 115.61,
         "result_count": 5
       },
       {
         "query_id": "mf_nl_11",
         "query": "How does the app handle JWT token validation?",
         "query_type": "natural_language",
-        "latency_ms": 119.38,
+        "latency_ms": 116.66,
         "result_count": 5
       },
       {
         "query_id": "mf_nl_12",
         "query": "How are flashcard collections organized?",
         "query_type": "natural_language",
-        "latency_ms": 127.62,
+        "latency_ms": 121.51,
         "result_count": 5
       },
       {
         "query_id": "mf_nl_13",
         "query": "What is the MongoDB connection setup?",
         "query_type": "natural_language",
-        "latency_ms": 113.5,
+        "latency_ms": 120.65,
         "result_count": 5
       },
       {
         "query_id": "mf_nl_14",
         "query": "How does the frontend handle form validation?",
         "query_type": "natural_language",
-        "latency_ms": 115.14,
+        "latency_ms": 116.29,
         "result_count": 5
       },
       {
         "query_id": "mf_nl_15",
         "query": "What middleware does the Express server use?",
         "query_type": "natural_language",
-        "latency_ms": 119.41,
+        "latency_ms": 110.94,
         "result_count": 5
       },
       {
         "query_id": "mf_nl_16",
         "query": "How is the Docker setup configured for development?",
         "query_type": "natural_language",
-        "latency_ms": 129.66,
+        "latency_ms": 114.23,
         "result_count": 5
       },
       {
         "query_id": "mf_nl_17",
         "query": "What Angular routing configuration is used?",
         "query_type": "natural_language",
-        "latency_ms": 113.05,
+        "latency_ms": 126.72,
         "result_count": 5
       },
       {
         "query_id": "mf_nl_18",
         "query": "How does the application delete a flashcard?",
         "query_type": "natural_language",
-        "latency_ms": 127.97,
+        "latency_ms": 132.61,
         "result_count": 5
       },
       {
         "query_id": "mf_nl_19",
         "query": "What password hashing strategy is used?",
         "query_type": "natural_language",
-        "latency_ms": 117.08,
+        "latency_ms": 121.71,
         "result_count": 5
       },
       {
         "query_id": "mf_nl_20",
         "query": "How does the frontend display a list of flashcards?",
         "query_type": "natural_language",
-        "latency_ms": 140.14,
+        "latency_ms": 126.53,
         "result_count": 5
       },
       {
         "query_id": "mf_nl_21",
         "query": "How are user profiles stored?",
         "query_type": "natural_language",
-        "latency_ms": 146.38,
+        "latency_ms": 114.81,
         "result_count": 5
       },
       {
         "query_id": "mf_nl_22",
         "query": "What is the main entry point of the backend server?",
         "query_type": "natural_language",
-        "latency_ms": 115.27,
+        "latency_ms": 123.85,
         "result_count": 5
       },
       {
         "query_id": "mf_nl_23",
         "query": "How are HTTP interceptors used in the Angular app?",
         "query_type": "natural_language",
-        "latency_ms": 113.1,
+        "latency_ms": 139.31,
         "result_count": 5
       },
       {
         "query_id": "mf_nl_24",
         "query": "How does the app handle updating a flashcard?",
         "query_type": "natural_language",
-        "latency_ms": 137.94,
+        "latency_ms": 116.45,
         "result_count": 5
       },
       {
         "query_id": "mf_nl_25",
         "query": "What navigation structure does the frontend use?",
         "query_type": "natural_language",
-        "latency_ms": 128.38,
+        "latency_ms": 115.93,
         "result_count": 5
       },
       {
         "query_id": "mf_code_01",
         "query": "router.post('/flashcards'",
         "query_type": "code",
-        "latency_ms": 122.81,
+        "latency_ms": 115.69,
         "result_count": 5
       },
       {
         "query_id": "mf_code_02",
         "query": "mongoose.Schema({",
         "query_type": "code",
-        "latency_ms": 117.02,
+        "latency_ms": 148.46,
         "result_count": 5
       },
       {
         "query_id": "mf_code_03",
         "query": "module.exports = router",
         "query_type": "code",
-        "latency_ms": 116.15,
+        "latency_ms": 114.87,
         "result_count": 5
       },
       {
         "query_id": "mf_code_04",
         "query": "jwt.sign(",
         "query_type": "code",
-        "latency_ms": 118.69,
+        "latency_ms": 121.72,
         "result_count": 5
       },
       {
         "query_id": "mf_code_05",
         "query": "jwt.verify(",
         "query_type": "code",
-        "latency_ms": 139.54,
+        "latency_ms": 127.32,
         "result_count": 5
       },
       {
         "query_id": "mf_code_06",
         "query": "@Component({",
         "query_type": "code",
-        "latency_ms": 126.11,
+        "latency_ms": 120.41,
         "result_count": 5
       },
       {
         "query_id": "mf_code_07",
         "query": "@Injectable({",
         "query_type": "code",
-        "latency_ms": 110.14,
+        "latency_ms": 146.2,
         "result_count": 5
       },
       {
         "query_id": "mf_code_08",
         "query": "this.http.get(",
         "query_type": "code",
-        "latency_ms": 114.26,
+        "latency_ms": 112.77,
         "result_count": 5
       },
       {
         "query_id": "mf_code_09",
         "query": "this.http.post(",
         "query_type": "code",
-        "latency_ms": 135.5,
+        "latency_ms": 116.87,
         "result_count": 5
       },
       {
         "query_id": "mf_code_10",
         "query": "bcrypt.compare(",
         "query_type": "code",
-        "latency_ms": 132.57,
+        "latency_ms": 116.26,
         "result_count": 5
       },
       {
         "query_id": "mf_code_11",
         "query": "mongoose.connect(",
         "query_type": "code",
-        "latency_ms": 130.12,
+        "latency_ms": 133.26,
         "result_count": 5
       },
       {
         "query_id": "mf_code_12",
         "query": "app.use(cors(",
         "query_type": "code",
-        "latency_ms": 112.65,
+        "latency_ms": 138.03,
         "result_count": 5
       },
       {
         "query_id": "mf_code_13",
         "query": "export class AppComponent",
         "query_type": "code",
-        "latency_ms": 118.17,
+        "latency_ms": 115.1,
         "result_count": 5
       },
       {
         "query_id": "mf_code_14",
         "query": "Router()",
         "query_type": "code",
-        "latency_ms": 119.75,
+        "latency_ms": 126.32,
         "result_count": 5
       },
       {
         "query_id": "mf_code_15",
         "query": "res.status(401).json(",
         "query_type": "code",
-        "latency_ms": 115.37,
+        "latency_ms": 122.92,
         "result_count": 5
       },
       {
         "query_id": "mf_code_16",
         "query": "findById(",
         "query_type": "code",
-        "latency_ms": 116.05,
+        "latency_ms": 137.35,
         "result_count": 5
       },
       {
         "query_id": "mf_code_17",
         "query": "findByIdAndUpdate(",
         "query_type": "code",
-        "latency_ms": 166.39,
+        "latency_ms": 141.39,
         "result_count": 5
       },
       {
         "query_id": "mf_code_18",
         "query": "findByIdAndDelete(",
         "query_type": "code",
-        "latency_ms": 134.52,
+        "latency_ms": 127.61,
         "result_count": 5
       },
       {
         "query_id": "mf_code_19",
         "query": "new FormGroup({",
         "query_type": "code",
-        "latency_ms": 121.45,
+        "latency_ms": 135.25,
         "result_count": 5
       },
       {
         "query_id": "mf_code_20",
         "query": "subscribe(",
         "query_type": "code",
-        "latency_ms": 192.4,
+        "latency_ms": 133.1,
         "result_count": 5
       },
       {
         "query_id": "mf_code_21",
         "query": "express.json()",
         "query_type": "code",
-        "latency_ms": 114.12,
+        "latency_ms": 151.01,
         "result_count": 5
       },
       {
         "query_id": "mf_code_22",
         "query": "ngOnInit()",
         "query_type": "code",
-        "latency_ms": 113.05,
+        "latency_ms": 114.19,
         "result_count": 5
       },
       {
         "query_id": "mf_code_23",
         "query": "canActivate(",
         "query_type": "code",
-        "latency_ms": 116.88,
+        "latency_ms": 134.16,
         "result_count": 5
       },
       {
         "query_id": "mf_code_24",
         "query": "bcrypt.hash(",
         "query_type": "code",
-        "latency_ms": 133.68,
+        "latency_ms": 111.99,
         "result_count": 5
       },
       {
         "query_id": "mf_code_25",
         "query": "app.listen(",
         "query_type": "code",
-        "latency_ms": 113.22,
+        "latency_ms": 120.21,
         "result_count": 5
       }
     ],
     "summary": {
-      "mean_ms": 132.39,
-      "p50_ms": 119.03,
-      "p90_ms": 139.6,
-      "p99_ms": 361.43
+      "mean_ms": 132.77,
+      "p50_ms": 123.38,
+      "p90_ms": 146.43,
+      "p99_ms": 306.19
     }
   },
   {
@@ -367,358 +367,358 @@
         "query_id": "fa_nl_01",
         "query": "How does dependency injection work in FastAPI?",
         "query_type": "natural_language",
-        "latency_ms": 246.82,
+        "latency_ms": 282.65,
         "result_count": 5
       },
       {
         "query_id": "fa_nl_02",
         "query": "How are request body models validated?",
         "query_type": "natural_language",
-        "latency_ms": 122.48,
+        "latency_ms": 115.74,
         "result_count": 5
       },
       {
         "query_id": "fa_nl_03",
         "query": "What is the middleware processing pipeline?",
         "query_type": "natural_language",
-        "latency_ms": 116.56,
+        "latency_ms": 115.32,
         "result_count": 5
       },
       {
         "query_id": "fa_nl_04",
         "query": "How does FastAPI generate OpenAPI documentation?",
         "query_type": "natural_language",
-        "latency_ms": 143.1,
+        "latency_ms": 128.22,
         "result_count": 5
       },
       {
         "query_id": "fa_nl_05",
         "query": "How are path parameters parsed and validated?",
         "query_type": "natural_language",
-        "latency_ms": 114.13,
+        "latency_ms": 113.62,
         "result_count": 5
       },
       {
         "query_id": "fa_nl_06",
         "query": "How does the APIRouter class work?",
         "query_type": "natural_language",
-        "latency_ms": 462.44,
+        "latency_ms": 178.73,
         "result_count": 5
       },
       {
         "query_id": "fa_nl_07",
         "query": "How are HTTP exceptions handled?",
         "query_type": "natural_language",
-        "latency_ms": 128.46,
+        "latency_ms": 128.33,
         "result_count": 5
       },
       {
         "query_id": "fa_nl_08",
         "query": "How does FastAPI handle file uploads?",
         "query_type": "natural_language",
-        "latency_ms": 133.63,
+        "latency_ms": 122.07,
         "result_count": 5
       },
       {
         "query_id": "fa_nl_09",
         "query": "What is the request lifecycle in FastAPI?",
         "query_type": "natural_language",
-        "latency_ms": 156.67,
+        "latency_ms": 134.58,
         "result_count": 5
       },
       {
         "query_id": "fa_nl_10",
         "query": "How are response models used to filter output?",
         "query_type": "natural_language",
-        "latency_ms": 131.68,
+        "latency_ms": 129.68,
         "result_count": 5
       },
       {
         "query_id": "fa_nl_11",
         "query": "How does FastAPI handle WebSocket connections?",
         "query_type": "natural_language",
-        "latency_ms": 115.74,
+        "latency_ms": 119.94,
         "result_count": 5
       },
       {
         "query_id": "fa_nl_12",
         "query": "What security utilities does FastAPI provide?",
         "query_type": "natural_language",
-        "latency_ms": 125.35,
+        "latency_ms": 132.76,
         "result_count": 5
       },
       {
         "query_id": "fa_nl_13",
         "query": "How are query parameters handled?",
         "query_type": "natural_language",
-        "latency_ms": 212.08,
+        "latency_ms": 159.17,
         "result_count": 5
       },
       {
         "query_id": "fa_nl_14",
         "query": "How does FastAPI support background tasks?",
         "query_type": "natural_language",
-        "latency_ms": 146.2,
+        "latency_ms": 125.73,
         "result_count": 5
       },
       {
         "query_id": "fa_nl_15",
         "query": "How is CORS configured in FastAPI?",
         "query_type": "natural_language",
-        "latency_ms": 144.09,
+        "latency_ms": 138.2,
         "result_count": 5
       },
       {
         "query_id": "fa_nl_16",
         "query": "How does the testclient work?",
         "query_type": "natural_language",
-        "latency_ms": 134.8,
+        "latency_ms": 131.83,
         "result_count": 5
       },
       {
         "query_id": "fa_nl_17",
         "query": "How are custom validators defined for request data?",
         "query_type": "natural_language",
-        "latency_ms": 114.87,
+        "latency_ms": 161.97,
         "result_count": 5
       },
       {
         "query_id": "fa_nl_18",
         "query": "How does FastAPI handle multiple response types?",
         "query_type": "natural_language",
-        "latency_ms": 149.63,
+        "latency_ms": 129.91,
         "result_count": 5
       },
       {
         "query_id": "fa_nl_19",
         "query": "What is the application startup and shutdown lifecycle?",
         "query_type": "natural_language",
-        "latency_ms": 128.23,
+        "latency_ms": 130.06,
         "result_count": 5
       },
       {
         "query_id": "fa_nl_20",
         "query": "How are nested routers composed?",
         "query_type": "natural_language",
-        "latency_ms": 116.75,
+        "latency_ms": 123.17,
         "result_count": 5
       },
       {
         "query_id": "fa_nl_21",
         "query": "How does FastAPI encode response data?",
         "query_type": "natural_language",
-        "latency_ms": 117.02,
+        "latency_ms": 124.19,
         "result_count": 5
       },
       {
         "query_id": "fa_nl_22",
         "query": "How are form fields handled differently from JSON body?",
         "query_type": "natural_language",
-        "latency_ms": 114.81,
+        "latency_ms": 135.27,
         "result_count": 5
       },
       {
         "query_id": "fa_nl_23",
         "query": "How does FastAPI auto-generate JSON Schema?",
         "query_type": "natural_language",
-        "latency_ms": 142.25,
+        "latency_ms": 116.91,
         "result_count": 5
       },
       {
         "query_id": "fa_nl_24",
         "query": "What status codes are used in route decorators?",
         "query_type": "natural_language",
-        "latency_ms": 123.17,
+        "latency_ms": 125.99,
         "result_count": 5
       },
       {
         "query_id": "fa_nl_25",
         "query": "How does FastAPI integrate with Starlette?",
         "query_type": "natural_language",
-        "latency_ms": 128.23,
+        "latency_ms": 127.91,
         "result_count": 5
       },
       {
         "query_id": "fa_code_01",
         "query": "def get_openapi(",
         "query_type": "code",
-        "latency_ms": 115.95,
+        "latency_ms": 130.81,
         "result_count": 5
       },
       {
         "query_id": "fa_code_02",
         "query": "class APIRouter",
         "query_type": "code",
-        "latency_ms": 120.41,
+        "latency_ms": 146.66,
         "result_count": 5
       },
       {
         "query_id": "fa_code_03",
         "query": "async def solve_dependencies(",
         "query_type": "code",
-        "latency_ms": 146.06,
+        "latency_ms": 116.3,
         "result_count": 5
       },
       {
         "query_id": "fa_code_04",
         "query": "class FastAPI(",
         "query_type": "code",
-        "latency_ms": 146.68,
+        "latency_ms": 121.15,
         "result_count": 5
       },
       {
         "query_id": "fa_code_05",
         "query": "def jsonable_encoder(",
         "query_type": "code",
-        "latency_ms": 119.33,
+        "latency_ms": 119.56,
         "result_count": 5
       },
       {
         "query_id": "fa_code_06",
         "query": "class Depends",
         "query_type": "code",
-        "latency_ms": 113.94,
+        "latency_ms": 127.18,
         "result_count": 5
       },
       {
         "query_id": "fa_code_07",
         "query": "async def serialize_response(",
         "query_type": "code",
-        "latency_ms": 115.93,
+        "latency_ms": 130.7,
         "result_count": 5
       },
       {
         "query_id": "fa_code_08",
         "query": "class UploadFile",
         "query_type": "code",
-        "latency_ms": 132.17,
+        "latency_ms": 123.21,
         "result_count": 5
       },
       {
         "query_id": "fa_code_09",
         "query": "class OAuth2PasswordBearer",
         "query_type": "code",
-        "latency_ms": 138.12,
+        "latency_ms": 117.52,
         "result_count": 5
       },
       {
         "query_id": "fa_code_10",
         "query": "def include_router(",
         "query_type": "code",
-        "latency_ms": 112.68,
+        "latency_ms": 144.3,
         "result_count": 5
       },
       {
         "query_id": "fa_code_11",
         "query": "class HTTPException",
         "query_type": "code",
-        "latency_ms": 115.24,
+        "latency_ms": 144.97,
         "result_count": 5
       },
       {
         "query_id": "fa_code_12",
         "query": "async def run_endpoint_function(",
         "query_type": "code",
-        "latency_ms": 143.02,
+        "latency_ms": 108.76,
         "result_count": 5
       },
       {
         "query_id": "fa_code_13",
         "query": "class BackgroundTasks",
         "query_type": "code",
-        "latency_ms": 132.31,
+        "latency_ms": 116.9,
         "result_count": 5
       },
       {
         "query_id": "fa_code_14",
         "query": "class Body(",
         "query_type": "code",
-        "latency_ms": 112.55,
+        "latency_ms": 113.98,
         "result_count": 5
       },
       {
         "query_id": "fa_code_15",
         "query": "class Query(",
         "query_type": "code",
-        "latency_ms": 111.1,
+        "latency_ms": 134.03,
         "result_count": 5
       },
       {
         "query_id": "fa_code_16",
         "query": "class Path(",
         "query_type": "code",
-        "latency_ms": 117.1,
+        "latency_ms": 134.43,
         "result_count": 5
       },
       {
         "query_id": "fa_code_17",
         "query": "def add_api_route(",
         "query_type": "code",
-        "latency_ms": 130.54,
+        "latency_ms": 112.97,
         "result_count": 5
       },
       {
         "query_id": "fa_code_18",
         "query": "class APIRoute(",
         "query_type": "code",
-        "latency_ms": 126.91,
+        "latency_ms": 119.85,
         "result_count": 5
       },
       {
         "query_id": "fa_code_19",
         "query": "async def http_exception_handler(",
         "query_type": "code",
-        "latency_ms": 116.03,
+        "latency_ms": 110.67,
         "result_count": 5
       },
       {
         "query_id": "fa_code_20",
         "query": "class Form(",
         "query_type": "code",
-        "latency_ms": 148.45,
+        "latency_ms": 137.87,
         "result_count": 5
       },
       {
         "query_id": "fa_code_21",
         "query": "def get_request_handler(",
         "query_type": "code",
-        "latency_ms": 115.69,
+        "latency_ms": 125.24,
         "result_count": 5
       },
       {
         "query_id": "fa_code_22",
         "query": "class Header(",
         "query_type": "code",
-        "latency_ms": 121.88,
+        "latency_ms": 113.58,
         "result_count": 5
       },
       {
         "query_id": "fa_code_23",
         "query": "class Cookie(",
         "query_type": "code",
-        "latency_ms": 130.47,
+        "latency_ms": 113.07,
         "result_count": 5
       },
       {
         "query_id": "fa_code_24",
         "query": "class WebSocket(",
         "query_type": "code",
-        "latency_ms": 142.53,
+        "latency_ms": 115.27,
         "result_count": 5
       },
       {
         "query_id": "fa_code_25",
         "query": "class Response(",
         "query_type": "code",
-        "latency_ms": 118.3,
+        "latency_ms": 138.7,
         "result_count": 5
       }
     ],
     "summary": {
-      "mean_ms": 138.25,
-      "p50_ms": 127.57,
-      "p90_ms": 148.57,
-      "p99_ms": 356.79
+      "mean_ms": 130.99,
+      "p50_ms": 126.59,
+      "p90_ms": 145.14,
+      "p99_ms": 231.73
     }
   },
   {
@@ -728,358 +728,358 @@
         "query_id": "ex_nl_01",
         "query": "How does Express handle routing?",
         "query_type": "natural_language",
-        "latency_ms": 117.55,
+        "latency_ms": 123.11,
         "result_count": 5
       },
       {
         "query_id": "ex_nl_02",
         "query": "How are middleware functions chained?",
         "query_type": "natural_language",
-        "latency_ms": 141.85,
+        "latency_ms": 117.25,
         "result_count": 5
       },
       {
         "query_id": "ex_nl_03",
         "query": "What is the request lifecycle in Express?",
         "query_type": "natural_language",
-        "latency_ms": 133.05,
+        "latency_ms": 110.95,
         "result_count": 5
       },
       {
         "query_id": "ex_nl_04",
         "query": "How does Express send JSON responses?",
         "query_type": "natural_language",
-        "latency_ms": 111.43,
+        "latency_ms": 118.63,
         "result_count": 5
       },
       {
         "query_id": "ex_nl_05",
         "query": "How are static files served?",
         "query_type": "natural_language",
-        "latency_ms": 113.59,
+        "latency_ms": 158.79,
         "result_count": 5
       },
       {
         "query_id": "ex_nl_06",
         "query": "How does Express parse request parameters?",
         "query_type": "natural_language",
-        "latency_ms": 124.84,
+        "latency_ms": 139.74,
         "result_count": 5
       },
       {
         "query_id": "ex_nl_07",
         "query": "How does the view rendering engine work?",
         "query_type": "natural_language",
-        "latency_ms": 124.4,
+        "latency_ms": 111.9,
         "result_count": 5
       },
       {
         "query_id": "ex_nl_08",
         "query": "How are cookies set in responses?",
         "query_type": "natural_language",
-        "latency_ms": 127.33,
+        "latency_ms": 133.75,
         "result_count": 5
       },
       {
         "query_id": "ex_nl_09",
         "query": "How does Express handle content negotiation?",
         "query_type": "natural_language",
-        "latency_ms": 114.94,
+        "latency_ms": 135.16,
         "result_count": 5
       },
       {
         "query_id": "ex_nl_10",
         "query": "How does the app.use() method work?",
         "query_type": "natural_language",
-        "latency_ms": 112.6,
+        "latency_ms": 124.61,
         "result_count": 5
       },
       {
         "query_id": "ex_nl_11",
         "query": "How are error handling middleware defined?",
         "query_type": "natural_language",
-        "latency_ms": 121.28,
+        "latency_ms": 113.44,
         "result_count": 5
       },
       {
         "query_id": "ex_nl_12",
         "query": "How does Express handle redirects?",
         "query_type": "natural_language",
-        "latency_ms": 137.25,
+        "latency_ms": 112.09,
         "result_count": 5
       },
       {
         "query_id": "ex_nl_13",
         "query": "How does the request.ip property work?",
         "query_type": "natural_language",
-        "latency_ms": 115.1,
+        "latency_ms": 116.26,
         "result_count": 5
       },
       {
         "query_id": "ex_nl_14",
         "query": "How are route parameters validated?",
         "query_type": "natural_language",
-        "latency_ms": 135.63,
+        "latency_ms": 131.68,
         "result_count": 5
       },
       {
         "query_id": "ex_nl_15",
         "query": "How does Express handle HTTP methods?",
         "query_type": "natural_language",
-        "latency_ms": 113.53,
+        "latency_ms": 135.25,
         "result_count": 5
       },
       {
         "query_id": "ex_nl_16",
         "query": "How does res.send() determine content type?",
         "query_type": "natural_language",
-        "latency_ms": 149.21,
+        "latency_ms": 109.12,
         "result_count": 5
       },
       {
         "query_id": "ex_nl_17",
         "query": "How does Express handle file downloads?",
         "query_type": "natural_language",
-        "latency_ms": 118.1,
+        "latency_ms": 113.31,
         "result_count": 5
       },
       {
         "query_id": "ex_nl_18",
         "query": "How are subdomains parsed from the host?",
         "query_type": "natural_language",
-        "latency_ms": 125.28,
+        "latency_ms": 125.51,
         "result_count": 5
       },
       {
         "query_id": "ex_nl_19",
         "query": "How does Express set response headers?",
         "query_type": "natural_language",
-        "latency_ms": 124.5,
+        "latency_ms": 140.81,
         "result_count": 5
       },
       {
         "query_id": "ex_nl_20",
         "query": "How does the app.listen() method create a server?",
         "query_type": "natural_language",
-        "latency_ms": 125.67,
+        "latency_ms": 135.3,
         "result_count": 5
       },
       {
         "query_id": "ex_nl_21",
         "query": "How are query strings parsed?",
         "query_type": "natural_language",
-        "latency_ms": 148.85,
+        "latency_ms": 116.98,
         "result_count": 5
       },
       {
         "query_id": "ex_nl_22",
         "query": "How does Express create the application object?",
         "query_type": "natural_language",
-        "latency_ms": 139.99,
+        "latency_ms": 113.84,
         "result_count": 5
       },
       {
         "query_id": "ex_nl_23",
         "query": "How is the request body parsed?",
         "query_type": "natural_language",
-        "latency_ms": 115.62,
+        "latency_ms": 132.82,
         "result_count": 5
       },
       {
         "query_id": "ex_nl_24",
         "query": "How are response status codes set?",
         "query_type": "natural_language",
-        "latency_ms": 113.25,
+        "latency_ms": 127.8,
         "result_count": 5
       },
       {
         "query_id": "ex_nl_25",
         "query": "What utility functions does Express use internally?",
         "query_type": "natural_language",
-        "latency_ms": 116.12,
+        "latency_ms": 114.85,
         "result_count": 5
       },
       {
         "query_id": "ex_code_01",
         "query": "proto.route = function",
         "query_type": "code",
-        "latency_ms": 120.54,
+        "latency_ms": 115.96,
         "result_count": 5
       },
       {
         "query_id": "ex_code_02",
         "query": "res.send = function",
         "query_type": "code",
-        "latency_ms": 135.75,
+        "latency_ms": 124.72,
         "result_count": 5
       },
       {
         "query_id": "ex_code_03",
         "query": "res.json = function",
         "query_type": "code",
-        "latency_ms": 114.47,
+        "latency_ms": 118.52,
         "result_count": 5
       },
       {
         "query_id": "ex_code_04",
         "query": "res.redirect = function",
         "query_type": "code",
-        "latency_ms": 109.68,
+        "latency_ms": 138.23,
         "result_count": 5
       },
       {
         "query_id": "ex_code_05",
         "query": "app.use = function",
         "query_type": "code",
-        "latency_ms": 123.97,
+        "latency_ms": 113.3,
         "result_count": 5
       },
       {
         "query_id": "ex_code_06",
         "query": "app.listen = function",
         "query_type": "code",
-        "latency_ms": 127.04,
+        "latency_ms": 136.26,
         "result_count": 5
       },
       {
         "query_id": "ex_code_07",
         "query": "app.render = function",
         "query_type": "code",
-        "latency_ms": 111.01,
+        "latency_ms": 111.49,
         "result_count": 5
       },
       {
         "query_id": "ex_code_08",
         "query": "function createApplication(",
         "query_type": "code",
-        "latency_ms": 116.19,
+        "latency_ms": 132.07,
         "result_count": 5
       },
       {
         "query_id": "ex_code_09",
         "query": "res.cookie = function",
         "query_type": "code",
-        "latency_ms": 114.16,
+        "latency_ms": 124.7,
         "result_count": 5
       },
       {
         "query_id": "ex_code_10",
         "query": "res.status = function",
         "query_type": "code",
-        "latency_ms": 123.82,
+        "latency_ms": 118.15,
         "result_count": 5
       },
       {
         "query_id": "ex_code_11",
         "query": "req.get = function",
         "query_type": "code",
-        "latency_ms": 142.87,
+        "latency_ms": 133.12,
         "result_count": 5
       },
       {
         "query_id": "ex_code_12",
         "query": "res.sendFile = function",
         "query_type": "code",
-        "latency_ms": 147.32,
+        "latency_ms": 113.49,
         "result_count": 5
       },
       {
         "query_id": "ex_code_13",
         "query": "res.download = function",
         "query_type": "code",
-        "latency_ms": 113.1,
+        "latency_ms": 129.49,
         "result_count": 5
       },
       {
         "query_id": "ex_code_14",
         "query": "Layer.prototype.match",
         "query_type": "code",
-        "latency_ms": 154.68,
+        "latency_ms": 132.8,
         "result_count": 5
       },
       {
         "query_id": "ex_code_15",
         "query": "Layer.prototype.handle_request",
         "query_type": "code",
-        "latency_ms": 133.57,
+        "latency_ms": 115.55,
         "result_count": 5
       },
       {
         "query_id": "ex_code_16",
         "query": "Layer.prototype.handle_error",
         "query_type": "code",
-        "latency_ms": 142.72,
+        "latency_ms": 111.21,
         "result_count": 5
       },
       {
         "query_id": "ex_code_17",
         "query": "Route.prototype.dispatch",
         "query_type": "code",
-        "latency_ms": 124.43,
+        "latency_ms": 112.34,
         "result_count": 5
       },
       {
         "query_id": "ex_code_18",
         "query": "app.param = function",
         "query_type": "code",
-        "latency_ms": 116.24,
+        "latency_ms": 152.0,
         "result_count": 5
       },
       {
         "query_id": "ex_code_19",
         "query": "module.exports = Route",
         "query_type": "code",
-        "latency_ms": 119.86,
+        "latency_ms": 125.68,
         "result_count": 5
       },
       {
         "query_id": "ex_code_20",
         "query": "res.set = function",
         "query_type": "code",
-        "latency_ms": 122.74,
+        "latency_ms": 114.72,
         "result_count": 5
       },
       {
         "query_id": "ex_code_21",
         "query": "View.prototype.render",
         "query_type": "code",
-        "latency_ms": 127.16,
+        "latency_ms": 112.61,
         "result_count": 5
       },
       {
         "query_id": "ex_code_22",
         "query": "res.type = function",
         "query_type": "code",
-        "latency_ms": 145.4,
+        "latency_ms": 126.57,
         "result_count": 5
       },
       {
         "query_id": "ex_code_23",
         "query": "res.format = function",
         "query_type": "code",
-        "latency_ms": 128.76,
+        "latency_ms": 130.02,
         "result_count": 5
       },
       {
         "query_id": "ex_code_24",
         "query": "res.append = function",
         "query_type": "code",
-        "latency_ms": 115.51,
+        "latency_ms": 123.54,
         "result_count": 5
       },
       {
         "query_id": "ex_code_25",
         "query": "app.engine = function",
         "query_type": "code",
-        "latency_ms": 107.8,
+        "latency_ms": 129.01,
         "result_count": 5
       }
     ],
     "summary": {
-      "mean_ms": 125.19,
-      "p50_ms": 123.89,
-      "p90_ms": 143.12,
-      "p99_ms": 152.0
+      "mean_ms": 124.17,
+      "p50_ms": 124.08,
+      "p90_ms": 136.46,
+      "p99_ms": 155.46
     }
   }
 ]
