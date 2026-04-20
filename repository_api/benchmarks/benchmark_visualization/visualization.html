@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repository API — Benchmark Report</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Benchmark Insights</h1>
+            <p class="metadata">Generated on 2026-04-20 08:04 UTC</p>
+        </header>
+
+        <section id="indexing">
+            <h2>1. Indexing Performance</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="chart-container">
+                        <canvas id="chart-indexing"></canvas>
+                    </div>
+                </div>
+                <div class="card-no-pad">
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Repository</th>
+                                    <th>Size</th>
+                                    <th>Files</th>
+                                    <th>LOC</th>
+                                    <th>Reg. (s)</th>
+                                    <th>Hyb. (s)</th>
+                                    <th>Total (s)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>mean-flashcards</code></td>
+                                    <td>small</td>
+                                    <td>68</td>
+                                    <td>3627</td>
+                                    <td>11.12</td>
+                                    <td>10.93</td>
+                                    <td>26.14</td>
+                                </tr>
+                                <tr>
+                                    <td><code>fastapi/fastapi</code></td>
+                                    <td>large</td>
+                                    <td>1123</td>
+                                    <td>107994</td>
+                                    <td>29.22</td>
+                                    <td>92.23</td>
+                                    <td>147.74</td>
+                                </tr>
+                                <tr>
+                                    <td><code>expressjs/express</code></td>
+                                    <td>medium</td>
+                                    <td>141</td>
+                                    <td>21346</td>
+                                    <td>9.00</td>
+                                    <td>9.38</td>
+                                    <td>26.56</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="latency">
+            <h2>2. Search Latency</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="chart-container">
+                        <canvas id="chart-latency"></canvas>
+                    </div>
+                </div>
+                <div class="card-no-pad">
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Repository</th>
+                                    <th>Queries</th>
+                                    <th>Mean (ms)</th>
+                                    <th>P50 (ms)</th>
+                                    <th>P90 (ms)</th>
+                                    <th>P99 (ms)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>mean-flashcards</code></td>
+                                    <td>50</td>
+                                    <td>132.77</td>
+                                    <td>123.38</td>
+                                    <td>146.43</td>
+                                    <td>306.19</td>
+                                </tr>
+                                <tr>
+                                    <td><code>fastapi/fastapi</code></td>
+                                    <td>50</td>
+                                    <td>130.99</td>
+                                    <td>126.59</td>
+                                    <td>145.14</td>
+                                    <td>231.73</td>
+                                </tr>
+                                <tr>
+                                    <td><code>expressjs/express</code></td>
+                                    <td>50</td>
+                                    <td>124.17</td>
+                                    <td>124.08</td>
+                                    <td>136.46</td>
+                                    <td>155.46</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="concurrency">
+            <h2>3. Concurrency Performance</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="chart-container">
+                        <canvas id="chart-concurrency-latency"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="chart-container">
+                        <canvas id="chart-concurrency-throughput"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="card-no-pad" style="margin-top: 1.5rem;">
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Repo / Concurrency</th>
+                                <th>1</th>
+                                <th>2</th>
+                                <th>5</th>
+                                <th>10</th>
+                                <th>20</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>mean-flashcards</code> (ms)</td>
+                                <td>118.72</td>
+                                <td>210.62</td>
+                                <td>326.72</td>
+                                <td>374.77</td>
+                                <td>532.52</td>
+                            </tr>
+                            <tr>
+                                <td><code>fastapi</code> (ms)</td>
+                                <td>321.92</td>
+                                <td>174.36</td>
+                                <td>225.46</td>
+                                <td>377.29</td>
+                                <td>628.30</td>
+                            </tr>
+                            <tr>
+                                <td><code>express</code> (ms)</td>
+                                <td>167.65</td>
+                                <td>145.77</td>
+                                <td>216.64</td>
+                                <td>317.23</td>
+                                <td>615.01</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="quality">
+            <h2>4. Retrieval Quality</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="chart-container">
+                        <canvas id="chart-quality"></canvas>
+                    </div>
+                </div>
+                <div class="card-no-pad">
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Repository</th>
+                                    <th>P@5</th>
+                                    <th>R@5</th>
+                                    <th>P@10</th>
+                                    <th>R@10</th>
+                                    <th>MRR</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><code>mean-flashcards</code></td><td>0.35</td><td>0.90</td><td>0.17</td><td>0.90</td><td>0.45</td></tr>
+                                <tr><td><code>fastapi/fastapi</code></td><td>0.22</td><td>0.84</td><td>0.11</td><td>0.84</td><td>0.40</td></tr>
+                                <tr><td><code>expressjs/express</code></td><td>0.04</td><td>0.22</td><td>0.02</td><td>0.22</td><td>0.07</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="comparison">
+            <h2>5. Natural Language vs Code Queries</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="chart-container">
+                        <canvas id="chart-nl-code"></canvas>
+                    </div>
+                </div>
+                <div class="card-no-pad">
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Repository</th>
+                                    <th>Type</th>
+                                    <th>P@5</th>
+                                    <th>R@5</th>
+                                    <th>MRR</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><code>mean-flashcards</code></td><td>NL</td><td>0.35</td><td>0.82</td><td>0.40</td></tr>
+                                <tr><td><code>mean-flashcards</code></td><td>Code</td><td>0.34</td><td>0.98</td><td>0.50</td></tr>
+                                <tr><td><code>fastapi/fastapi</code></td><td>NL</td><td>0.22</td><td>0.82</td><td>0.42</td></tr>
+                                <tr><td><code>fastapi/fastapi</code></td><td>Code</td><td>0.22</td><td>0.86</td><td>0.39</td></tr>
+                                <tr><td><code>expressjs/express</code></td><td>NL</td><td>0.06</td><td>0.32</td><td>0.11</td></tr>
+                                <tr><td><code>expressjs/express</code></td><td>Code</td><td>0.02</td><td>0.12</td><td>0.04</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card-no-pad">
+                    <div class="table-container">
+                        <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1rem;">Comparison of retrieval performance between natural language questions and direct code queries.</p>
+                        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                            <div style="display: flex; justify-content: space-between;"><span>Mean NL MRR:</span><strong>0.31</strong></div>
+                            <div style="display: flex; justify-content: space-between;"><span>Mean Code MRR:</span><strong>0.31</strong></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="index-type-comparison">
+            <h2>6. Index Type Comparison</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="chart-container">
+                        <canvas id="chart-index-comparison"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="chart-container">
+                        <canvas id="chart-index-latency"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="card-no-pad" style="margin-top: 1.5rem;">
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Repository</th>
+                                <th>Index Type</th>
+                                <th>P@5</th>
+                                <th>R@5</th>
+                                <th>MRR</th>
+                                <th>Latency (ms)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><code>mean-flashcards</code></td><td>dense</td><td>0.35</td><td>0.90</td><td>0.45</td><td>133.29</td></tr>
+                            <tr><td><code>mean-flashcards</code></td><td>hybrid</td><td>0.32</td><td>0.82</td><td>0.41</td><td>140.39</td></tr>
+                            <tr><td><code>fastapi/fastapi</code></td><td>dense</td><td>0.22</td><td>0.84</td><td>0.40</td><td>136.07</td></tr>
+                            <tr><td><code>fastapi/fastapi</code></td><td>hybrid</td><td>0.22</td><td>0.88</td><td>0.38</td><td>148.46</td></tr>
+                            <tr><td><code>expressjs/express</code></td><td>dense</td><td>0.04</td><td>0.22</td><td>0.07</td><td>136.31</td></tr>
+                            <tr><td><code>expressjs/express</code></td><td>hybrid</td><td>0.06</td><td>0.26</td><td>0.14</td><td>133.05</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="charts.js"></script>
+</body>
+</html>
