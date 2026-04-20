@@ -106,7 +106,8 @@ def process_json(filepath: Path):
         # 1. Confusion Matrix Plot
         cm_dict = metrics.get("confusion_matrix", {})
         cm_df = pd.DataFrame(cm_dict).T
-        output_path = filepath.parent / f"{filepath.stem}_{model_name}.png"
+        safe_model_name = model_name.replace("/", "_").replace(":", "_")
+        output_path = filepath.parent / f"{filepath.stem}_{safe_model_name}.png"
         plot_confusion_matrix(cm_df, model_name, str(output_path))
         
         # 2. Collect Accuracy Metrics
@@ -138,7 +139,8 @@ def process_csv(filepath: Path):
         
         # Compute confusion matrix
         cm_df = pd.crosstab(model_df["expected_category"], model_df["routed_category"])
-        output_path = filepath.parent / f"{filepath.stem}_{model_name}.png"
+        safe_model_name = model_name.replace("/", "_").replace(":", "_")
+        output_path = filepath.parent / f"{filepath.stem}_{safe_model_name}.png"
         plot_confusion_matrix(cm_df, model_name, str(output_path))
         
         # Compute Accuracy
